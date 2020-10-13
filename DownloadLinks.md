@@ -15,3 +15,4 @@ sudo apt install mysql-server
 
 ## Edit zshrc or bashrc to make running QT Designer easy
 Task done
+Run Qtdev to run QT Designer **after Installation**
