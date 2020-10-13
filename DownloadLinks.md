@@ -14,11 +14,4 @@ sudo apt install mysql-server
     [visit LikeGeeks](https://likegeeks.com/mysql-on-linux-beginners-tutorial/)
 
 ## Edit zshrc or bashrc to make running QT Designer easy
-
-**In terminal**
-</br>
-gedit ~/.zshrc (or bashrc if you dont use OhMyZsh)
-</br>
-**Add at the bottom line, Or in the Alias Section in zshrc**
-</br>
-alias Qtdes="wine /home/<--YOURUSERNAME-->/.wine/drive_c/Program\ Files\ \(x86\)/Qt\ Designer/designer.exe"
+Task done
