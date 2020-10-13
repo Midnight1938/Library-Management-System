@@ -10,5 +10,6 @@
     - We cant Work on the same File at the same time (duh)
     - I will Tell about changes Ive made to the repo on Dscrd
     - So will you
+    - If so, Pull Repository before you start working
     - I will Check each change made and Comit (Probably)
     - After The code is Complete, Copy the folder somewhere else and Change Icons in the Icon Folder, (Best if you keep the same names)
