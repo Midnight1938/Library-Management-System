@@ -1,6 +1,7 @@
 # Library Management Structure
 
 [For Downloads and Extras](https://github.com/Midnight1938/Library-Management/blob/master/DownloadLinks.md)
+[Check Schedule Info](https://github.com/Midnight1938/Library-Management/blob/master/Schedule.md)
 
 ## Library system
 
