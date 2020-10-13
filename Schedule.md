@@ -12,7 +12,7 @@
     - So will you
     - If so, Pull Repository before you start working (Like Right Now))
     - I will Check each change made and Comit (Probably)
-    - After The code is Complete, Copy the folder somewhere else and Change Icons in the Icon Folder, (Best if you keep the same names)
+    - After The code is Complete, Copy the folder somewhere else and</br> Change Icons in the Icon Folder, (Best if you keep the same names)
     - Install All the things today and Let me know when you do cuz Qt Designer is a little Tricky When it will come to Opening the Library.ui File.
     - All changes Autosavee in your Editing window when you go anywhere else.
     - Make your First Proper Commit, enter something into the Message box and hit ctrl+enter like what? ANYTHING
