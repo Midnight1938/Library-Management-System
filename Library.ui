@@ -833,28 +833,410 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>80</x>
+        <x>50</x>
         <y>30</y>
-        <width>351</width>
-        <height>461</height>
+        <width>391</width>
+        <height>471</height>
        </rect>
       </property>
       <property name="title">
        <string>Add New User</string>
       </property>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Username</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>220</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Confirm Password</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_19">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>110</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Email ID</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>59</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_10">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>110</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_11">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>180</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_12">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>220</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_11">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>320</y>
+         <width>171</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>URW Bookman</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Add User</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>560</x>
+        <x>530</x>
         <y>30</y>
-        <width>351</width>
-        <height>461</height>
+        <width>411</width>
+        <height>471</height>
        </rect>
       </property>
       <property name="title">
-       <string>GroupBox</string>
+       <string>Edit User Info</string>
       </property>
+      <widget class="QLabel" name="label_20">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_21">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>User Id</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_13">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>19</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_14">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>60</y>
+         <width>191</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_12">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>100</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>URW Bookman</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Login</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_22">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>350</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Confirm Password</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_23">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>300</y>
+         <width>81</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Password</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_24">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>200</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Username</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_15">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>199</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_16">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>250</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_17">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>300</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_25">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>250</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Times New Roman</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Email ID</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_18">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>350</y>
+         <width>181</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="echoMode">
+        <enum>QLineEdit::Password</enum>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_13">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>400</y>
+         <width>211</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>URW Bookman</family>
+         <pointsize>14</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Confirm Changes</string>
+       </property>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_3">
