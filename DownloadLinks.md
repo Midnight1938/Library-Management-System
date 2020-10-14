@@ -7,19 +7,24 @@
 - [ ] wget -c <https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.21-1ubuntu20.04_amd64.deb>
 * * *
 
+## Essentials
+
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+
+[Using Markdown](https://guides.github.com/features/mastering-markdown/)
+[Google Play](https://play.google.com/store/apps/details?id=com.github.android)
+
 ## SQL Functions
 
 - [ ] sudo apt install mysql-server
 - [ ] For More info
     [visit LikeGeeks](https://likegeeks.com/mysql-on-linux-beginners-tutorial/)
 
-
-
-# Using the Tick box
+## Using the Tick box
 
 Put an 'x' between the [ ] to mark it as done. In the actual file
 
-### Eg:
+### Eg
 
 - [ ] This is open
 - [x] This is ticked
