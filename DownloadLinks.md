@@ -2,9 +2,9 @@
 
 ## Install QTDesigner, SQL Workbench
 
-- [ ] wget -c <https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe>
+- [x] wget -c <https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe>
 
-- [ ] wget -c <https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.21-1ubuntu20.04_amd64.deb>
+- [x] wget -c <https://cdn.mysql.com//Downloads/MySQLGUITools/mysql-workbench-community_8.0.21-1ubuntu20.04_amd64.deb>
 
 * * *
 
