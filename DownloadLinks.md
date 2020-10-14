@@ -22,9 +22,12 @@
 
 ## Using the Tick box
 
-Put an 'x' between the [ ] to mark it as done. In the actual file
+- [ ] Put an 'x' between the [ ] to mark it as done. In the actual file
 
 ### Eg
 
 - [ ] This is open
 - [x] This is ticked
+
+* * *
+[Go back](https://github.com/Midnight1938/Library-Management)

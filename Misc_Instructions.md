@@ -20,3 +20,6 @@
 ### Task for the day
 
 Will start working on the book tab at 1015h (Vid 6)
+
+* * *
+[Go back](https://github.com/Midnight1938/Library-Management)
