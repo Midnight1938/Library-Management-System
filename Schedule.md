@@ -5,15 +5,18 @@
 
 * * *
 
-## How to upload
+## After The code is Complete, Copy the folder somewhere else and</br> Change Icons in the Icon Folder, (Best if you keep the same names)
+
+* * *
+
+### How to upload
 
     - We cant Work on the same File at the same time (duh)
-    - I will Tell about changes Ive made to the repo on Dscrd
+    - The bot will inform of comits, which are to be pushed AFTER youre done editing, by clicking the small sync icon on the bottom left
     - So will you
     - If so, Pull Repository before you start working (Like Right Now))
     - I will Check each change made and Comit (Probably)
-    - After The code is Complete, Copy the folder somewhere else and</br> Change Icons in the Icon Folder, (Best if you keep the same names)
 
-## Task for the day
+### Task for the day
 
-Will start working on the book tab at 1015h
+Will start working on the book tab at 1015h (Vid 6)
