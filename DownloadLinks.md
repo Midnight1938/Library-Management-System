@@ -9,9 +9,8 @@
 
 ## Essentials
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
-
 [Using Markdown](https://guides.github.com/features/mastering-markdown/)
+</br>
 [Google Play](https://play.google.com/store/apps/details?id=com.github.android)
 
 ## SQL Functions
