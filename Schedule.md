@@ -12,7 +12,7 @@
 ### How to upload
 
     - We cant Work on the same File at the same time (duh)
-    - The bot will inform of comits, which are to be pushed AFTER youre done editing, by clicking the small sync icon on the bottom left
+    - The bot will inform of comits, which are to be pushed AFTER youre done editing, </br>by clicking the small sync icon on the bottom left
     - So will you
     - If so, Pull Repository before you start working (Like Right Now))
     - I will Check each change made and Comit (Probably)
