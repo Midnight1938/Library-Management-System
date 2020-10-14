@@ -16,8 +16,8 @@
 
 ## SQL Functions
 
-- [ ] sudo apt install mysql-server
-- [ ] For More info
+- [x] sudo apt install mysql-server
+- [x] For More info
     [visit LikeGeeks](https://likegeeks.com/mysql-on-linux-beginners-tutorial/)
 
 ## Using the Tick box
