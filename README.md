@@ -2,7 +2,7 @@
 
 [For Downloads and Extras](https://github.com/Midnight1938/Library-Management/blob/master/DownloadLinks.md)
 
-[Check Schedule Info](https://github.com/Midnight1938/Library-Management/blob/master/Schedule.md)
+[Check Schedule Info and additional stuff](https://github.com/Midnight1938/Library-Management/blob/master/Misc_Instructions.md)
 </br>
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 </br>
