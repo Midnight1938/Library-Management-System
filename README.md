@@ -35,3 +35,9 @@
     - UserName
     - Pwd
     - Email Id
+
+### Day-to-Day:
+
+    - Book name
+    - Type (Take / Give)
+    - Duration (weeks)
