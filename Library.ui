@@ -139,7 +139,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -1463,6 +1463,9 @@
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_3">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>760</x>
@@ -1504,7 +1507,7 @@
     <widget class="QPushButton" name="pushButton_17">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>130</y>
        <width>141</width>
        <height>121</height>
@@ -1517,7 +1520,7 @@
     <widget class="QPushButton" name="pushButton_18">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>200</x>
        <y>130</y>
        <width>141</width>
        <height>121</height>
@@ -1530,7 +1533,7 @@
     <widget class="QPushButton" name="pushButton_19">
      <property name="geometry">
       <rect>
-       <x>40</x>
+       <x>50</x>
        <y>260</y>
        <width>141</width>
        <height>121</height>
@@ -1543,7 +1546,7 @@
     <widget class="QPushButton" name="pushButton_20">
      <property name="geometry">
       <rect>
-       <x>190</x>
+       <x>200</x>
        <y>260</y>
        <width>141</width>
        <height>121</height>
@@ -1551,6 +1554,19 @@
      </property>
      <property name="text">
       <string>PushButton</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_21">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>240</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>-&gt;</string>
      </property>
     </widget>
    </widget>
