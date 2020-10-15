@@ -36,8 +36,20 @@
     - Pwd
     - Email Id
 
-### Day-to-Day:
+### Day-to-Day
 
     - Book name
     - Type (Take / Give)
     - Duration (weeks)
+
+### Category
+
+    -Name
+
+### Publisher
+
+    -Name
+
+### Author
+
+    -Name
