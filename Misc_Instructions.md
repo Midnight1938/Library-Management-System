@@ -19,7 +19,18 @@
 
 ### Task for the day
 
-Will start working on the book tab at 1015h (Vid 6)
+#### Import the sql from SQL_Workbench
+
+- [ ] Look at the top. Serrver> Data Import.
+- [ ] Youll import from a self Contained File, Click that circle beside it and Locate this Library.sql using the three dots on the opposite side of this circl, and - - [ ] click import
+- [ ] Check Import status
+- [ ] Check if it actually imported
+
+#### In terminal:
+
+- [ ] sudo mysql -u root
+- [ ] Once it says 'mysql>'
+- [ ] ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password123#@';
 
 * * *
 [Go back](https://github.com/Midnight1938/Library-Management)
