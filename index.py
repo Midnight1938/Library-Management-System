@@ -15,14 +15,17 @@ class MainApp(QMainWindow, ui):
         self.setupUi(self)
         self.Handle_UI_Changes()
         self.Handle_Buttons()
+    ### Show things ###
+        self.Show_Authors()
         self.Show_Category()
-
+        self.Show_Publishers()
+        
     def Handle_UI_Changes(self):
         self.Hiding_Theme()
         self.tabWidget.tabBar().setVisible(False)
 
     def Handle_Buttons(self):
-        ## ** For Themes ** ##
+    ## ** For Themes ** ##
         self.pushButton_5.clicked.connect(self.Show_Theme)
         self.pushButton_21.clicked.connect(self.Hiding_Theme)
     ## ** For Navigation ** ##
@@ -80,7 +83,7 @@ class MainApp(QMainWindow, ui):
         book.publisher = self.comboBox_5.CurrentText()
         book_price = self.lineEdit_5.text()
 
-    def Saerch_Book(self):
+    def Search_Book(self):
         pass
 
     def Edit_Book(self):
@@ -104,7 +107,6 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### **   Tweaks Stuff   ** #######
 ####### ** ---------------- ** #######
-
 ### !! Categories !! ###
     def Add_Category(self):
         self.db = pymysql.connect(
@@ -114,11 +116,11 @@ class MainApp(QMainWindow, ui):
         category_name = self.lineEdit_19.text()
 
         self.cur.execute('''
-                         INSERT INTO Category (Category_name) VALUES (%s)
+                         INSERT INTO Categories (Category_name) VALUES (%s)
                          ''', (category_name,))
         self.db.commit()
-        self.statusBar().showMessage("Category added Succesfully")
         self.lineEdit_19.setText('')
+        self.statusBar().showMessage("Category added Succesfully")
         self.Show_Category()
 
 ### *Showing categories* ###
@@ -127,7 +129,7 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT category_name FROM Category ''')
+        self.cur.execute(''' SELECT category_name FROM Categories ''')
         data = self.cur.fetchall()
 
         if data:
@@ -142,6 +144,8 @@ class MainApp(QMainWindow, ui):
                 Row_Position = self.tableWidget_2.rowCount()
                 self.tableWidget_2.insertRow(Row_Position)
 
+
+
 ### !! Authors !! ###
     def Add_Author(self):
         self.db = pymysql.connect(
@@ -151,17 +155,34 @@ class MainApp(QMainWindow, ui):
         author_name = self.lineEdit_20.text()
 
         self.cur.execute('''
-                         INSERT INTO Author (Author_name) VALUES (%s)
+                         INSERT INTO Authors (Author_name) VALUES (%s)
                          ''', (author_name,))
         self.db.commit()
-        self.statusBar().showMessage("Author Added Succesfully")
         self.lineEdit_20.setText('')
+        self.statusBar().showMessage("Author Added Succesfully")
+        self.Show_Authors()
 
 ### *Showing Authors* ###
     def Show_Authors(self):
         self.db = pymysql.connect(
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
+
+        self.cur.execute(''' SELECT author_name FROM Authors ''')
+        data = self.cur.fetchall()
+
+        if data:
+            self.tableWidget_3.setRowCount(0)
+            self.tableWidget_3.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.tableWidget_3.setItem(
+                        row, column, QTableWidgetItem(str(item)))
+                    column += 1
+
+                Row_Position = self.tableWidget_3.rowCount()
+                self.tableWidget_3.insertRow(Row_Position)
+
 
 
 ### !! Publishers !! ###
@@ -174,17 +195,33 @@ class MainApp(QMainWindow, ui):
         publisher_name = self.lineEdit_21.text()
 
         self.cur.execute('''
-                         INSERT INTO Publisher (Publisher_name) VALUES (%s)
+                         INSERT INTO Publishers (Publisher_name) VALUES (%s)
                          ''', (publisher_name,))
         self.db.commit()
-        self.statusBar().showMessage("Publisher added Succesfully")
         self.lineEdit_21.setText('')
+        self.statusBar().showMessage("Publisher added Succesfully")
+        self.Show_Publishers()
 
 ### *Showing Publishers* ###
     def Show_Publishers(self):
         self.db = pymysql.connect(
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
+
+        self.cur.execute(''' SELECT publisher_name FROM Publishers ''')
+        data = self.cur.fetchall()
+
+        if data:
+            self.tableWidget_4.setRowCount(0)
+            self.tableWidget_4.insertRow(0)
+            for row, form in enumerate(data):
+                for column, item in enumerate(form):
+                    self.tableWidget_4.setItem(
+                        row, column, QTableWidgetItem(str(item)))
+                    column += 1
+
+                Row_Position = self.tableWidget_4.rowCount()
+                self.tableWidget_4.insertRow(Row_Position)
 
 
 ####### !! ---------------- !! #######

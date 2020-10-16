@@ -16,27 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `Author`
+-- Table structure for table `Authors`
 --
 
-DROP TABLE IF EXISTS `Author`;
+DROP TABLE IF EXISTS `Authors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Author` (
+CREATE TABLE `Authors` (
   `idAuthor` int NOT NULL AUTO_INCREMENT,
   `Author_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idAuthor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Author`
+-- Dumping data for table `Authors`
 --
 
-LOCK TABLES `Author` WRITE;
-/*!40000 ALTER TABLE `Author` DISABLE KEYS */;
-INSERT INTO `Author` VALUES (1,'Rick Riordan');
-/*!40000 ALTER TABLE `Author` ENABLE KEYS */;
+LOCK TABLES `Authors` WRITE;
+/*!40000 ALTER TABLE `Authors` DISABLE KEYS */;
+INSERT INTO `Authors` VALUES (1,'Rick Riordan'),(2,'Roald Dahl'),(3,'Lewis Caroll');
+/*!40000 ALTER TABLE `Authors` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -69,27 +69,27 @@ LOCK TABLES `Book` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Category`
+-- Table structure for table `Categories`
 --
 
-DROP TABLE IF EXISTS `Category`;
+DROP TABLE IF EXISTS `Categories`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Category` (
+CREATE TABLE `Categories` (
   `idCategory` int NOT NULL AUTO_INCREMENT,
   `Category_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idCategory`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Category`
+-- Dumping data for table `Categories`
 --
 
-LOCK TABLES `Category` WRITE;
-/*!40000 ALTER TABLE `Category` DISABLE KEYS */;
-INSERT INTO `Category` VALUES (1,'Action'),(2,'Drama');
-/*!40000 ALTER TABLE `Category` ENABLE KEYS */;
+LOCK TABLES `Categories` WRITE;
+/*!40000 ALTER TABLE `Categories` DISABLE KEYS */;
+INSERT INTO `Categories` VALUES (1,'Action'),(2,'Drama'),(6,'Romance');
+/*!40000 ALTER TABLE `Categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -118,27 +118,27 @@ LOCK TABLES `Day-To-Day_Tasks` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Publisher`
+-- Table structure for table `Publishers`
 --
 
-DROP TABLE IF EXISTS `Publisher`;
+DROP TABLE IF EXISTS `Publishers`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Publisher` (
+CREATE TABLE `Publishers` (
   `idPublisher` int NOT NULL AUTO_INCREMENT,
   `Publisher_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPublisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `Publisher`
+-- Dumping data for table `Publishers`
 --
 
-LOCK TABLES `Publisher` WRITE;
-/*!40000 ALTER TABLE `Publisher` DISABLE KEYS */;
-INSERT INTO `Publisher` VALUES (1,'Puffin Books');
-/*!40000 ALTER TABLE `Publisher` ENABLE KEYS */;
+LOCK TABLES `Publishers` WRITE;
+/*!40000 ALTER TABLE `Publishers` DISABLE KEYS */;
+INSERT INTO `Publishers` VALUES (1,'Puffin Books'),(2,'Orient');
+/*!40000 ALTER TABLE `Publishers` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-16 14:20:10
+-- Dump completed on 2020-10-16 18:30:24
