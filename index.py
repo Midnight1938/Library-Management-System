@@ -141,6 +141,9 @@ class MainApp(QMainWindow, ui):
         self.db.commit()
         self.statusBar().showMessage("Publisher added Succesfully")
 
+####### ** ---------------- ** #######
+####### **  Program Runner  ** #######
+####### ** ---------------- ** #######
 def main():
     app = QApplication(sys.argv)
     window = MainApp()
