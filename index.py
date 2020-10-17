@@ -163,7 +163,7 @@ class MainApp(QMainWindow, ui):
         
         book_title = self.lineEdit_7.text()
         
-        warning = QMessageBox.warning(self, 'Delete Book', 'Are you sure?', QMessageBox.Yes | QMessageBox.No)
+        warning = QMessageBox.warning(self, 'Delete Book', 'Are you sure you want to delete this??', QMessageBox.Yes | QMessageBox.No)
         if warning == QMessageBox.Yes:
             sql = ''' DELETE FROM Book WHERE Book_name = %s '''
             self.cur.execute(sql, [(book_title)])
