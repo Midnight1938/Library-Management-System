@@ -49,6 +49,8 @@ class MainApp(QMainWindow, ui):
         self.pushButton_9.clicked.connect(self.Search_Books)
         self.pushButton_8.clicked.connect(self.Edit_Book)
         self.pushButton_10.clicked.connect(self.Remove_Book)
+    ## ** Adding Users ** ##
+        self.pushButton_11.clicked.connect(self.Add_User)
         
 
 ####### ** ---------------- ** #######
