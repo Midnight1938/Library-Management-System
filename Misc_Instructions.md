@@ -26,7 +26,7 @@
 - [ ] Check Import status
 - [ ] Check if it actually imported
 
-#### In terminal:
+#### In terminal
 
 - [ ] sudo mysql -u root
 - [ ] Once it says 'mysql>'
