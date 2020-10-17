@@ -176,7 +176,27 @@ class MainApp(QMainWindow, ui):
 ####### **   Users Stuff    ** #######
 ####### ** ---------------- ** #######
     def Add_User(self):
-        pass
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+        
+        Username = self.lineEdit_2.text()
+        Email = self.lineEdit_10.text()
+        Password = self.lineEdit_11.text()
+        Re_Pass = self.lineEdit_12.text()
+        
+        if Password == Re_Pass:
+            self.cur.execute('''
+                             INSERT INTO Users(user_name, user_email, user_password)
+                             VALUES (%s,%s,%s)
+                             ''', (Username, Email, Password))
+            
+            self.db.commit()
+            self.statusBar().showMessage("New user added Sucessfully")
+            
+            
+        else:
+            self.label_30.text("Passwords dont match")
 
     def Login_User(self):
         pass
