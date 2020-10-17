@@ -342,7 +342,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -738,7 +738,7 @@
          <string>Book Price</string>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_7">
+       <widget class="QComboBox" name="comboBox_8">
         <property name="geometry">
          <rect>
           <x>690</x>
@@ -806,7 +806,7 @@
          </rect>
         </property>
        </widget>
-       <widget class="QComboBox" name="comboBox_8">
+       <widget class="QComboBox" name="comboBox_7">
         <property name="geometry">
          <rect>
           <x>690</x>

@@ -45,6 +45,9 @@ class MainApp(QMainWindow, ui):
         self.pushButton_15.clicked.connect(self.Add_Author)
     ## ** Adding Publisher ** ##
         self.pushButton_16.clicked.connect(self.Add_Publisher)
+    ## ** Editing Book info ** ##
+        self.pushButton_9.clicked.connect(self.Search_Books)
+        self.pushButton_8.clicked.connect(self.Edit_Book)
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
@@ -75,6 +78,7 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
 ####### ** ---------------- ** #######
+### !! Book Adding !! ##
     def Add_New_Book(self):
         self.db = pymysql.connect(
             host='localhost', user='root', password='Password123#@', db='Library')
@@ -103,12 +107,52 @@ class MainApp(QMainWindow, ui):
         self.comboBox_4.setCurrentIndex(0)
         self.comboBox_5.setCurrentIndex(0)
         self.lineEdit_5.setText('')
+
+### !! Book Edits !! ###
+    def Search_Books(self):
+        self.db = pymysql.connect(
+            host='localhost', user='root', password='Password123#@', db='Library')
+        self.cur = self.db.cursor()
         
-    def Search_Book(self):
-        pass
+        book_title = self.lineEdit_7.text()
+        
+        sql = (''' SELECT * FROM Book WHERE book_name = %s ''')
+        self.cur.execute(sql, [(book_title)])
+        
+        data = self.cur.fetchone()
+        ### Data defined ###
+        self.lineEdit_6.setText(data[1])
+        self.textEdit_2.setPlainText(data[2])
+        self.lineEdit_9.setText(data[3])
+        self.comboBox_6.setCurrentIndex(data[4])
+        self.comboBox_7.setCurrentIndex(data[5])
+        self.comboBox_8.setCurrentIndex(data[6])
+        self.lineEdit_8.setText(str(data[7]))
+
 
     def Edit_Book(self):
-        pass
+        self.db = pymysql.connect(
+            host='localhost', user='root', password='Password123#@', db='Library')
+        self.cur = self.db.cursor()
+        
+        Book_name = self.lineEdit_6.text()
+        Book_describe = self.textEdit_2.toPlainText()
+        Book_code = self.lineEdit_9.text()
+        Book_category = self.comboBox_6.currentIndex()
+        Book_author = self.comboBox_7.currentIndex()
+        Book_publisher = self.comboBox_8.currentIndex()
+        Book_price = self.lineEdit_8.text()
+        
+        
+        search_book_title = self.lineEdit_7.text()
+        
+        self.cur.execute('''
+                         UPDATE Book SET Book_name=%s, Book_describe=%s, Book_code=%s, Book_category=%s, Book_author=%s, Book_publisher=%s, Book_price=%s WHERE book_name = %s
+                         ''', (Book_name, Book_describe, Book_code, Book_category, Book_author, Book_publisher, Book_price, search_book_title))
+
+        self.db.commit()
+        self.statusBar().showMessage("Book Info Updated")
+        
 
     def Remove_Book(self):
         pass
@@ -209,7 +253,6 @@ class MainApp(QMainWindow, ui):
 
 ### !! Publishers !! ###
 
-
     def Add_Publisher(self):
         self.db = pymysql.connect(
             host='localhost', user='root', password='Password123#@', db='Library')
@@ -249,7 +292,7 @@ class MainApp(QMainWindow, ui):
 
 
 ####### ** ---------------- ** #######
-####### **   UI Settings    ** #######
+####### ** Book UI Settings ** #######
 ####### ** ---------------- ** #######
 
     def Show_Category_CBB(self):
@@ -263,6 +306,7 @@ class MainApp(QMainWindow, ui):
         self.comboBox_3.clear()
         for category in data:
             self.comboBox_3.addItem(category[0])
+            self.comboBox_6.addItem(category[0])
 
 
     def Show_Author_CBB(self):
@@ -276,6 +320,7 @@ class MainApp(QMainWindow, ui):
         self.comboBox_4.clear()
         for category in data:
             self.comboBox_4.addItem(category[0])
+            self.comboBox_7.addItem(category[0])
 
 
     def Show_Publisher_CBB(self):
@@ -289,6 +334,7 @@ class MainApp(QMainWindow, ui):
         self.comboBox_5.clear()
         for category in data:
             self.comboBox_5.addItem(category[0])
+            self.comboBox_8.addItem(category[0])
 
 
 
