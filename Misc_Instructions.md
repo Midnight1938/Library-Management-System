@@ -31,6 +31,8 @@
 - [ ] sudo mysql -u root
 - [ ] Once it says 'mysql>'
 - [ ] ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password123#@';
+- [ ] Type exit to exit the SQL thingy
+- [ ] type ```sudo apt-get install appmenu-gtk2-module appmenu-gtk3-module -y``` to solve the stupid GTK Mssage ive seen whenver i run something from terminal (apps)
 
 * * *
 [Go back](https://github.com/Midnight1938/Library-Management)
