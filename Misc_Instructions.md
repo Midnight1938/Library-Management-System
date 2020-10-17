@@ -21,17 +21,13 @@
 
 #### Import the sql from SQL_Workbench
 
-- [ ] Look at the top. Serrver> Data Import.
+- [x] Look at the top. Serrver> Data Import.
 - [ ] Youll import from a self Contained File, Click that circle beside it and Locate this Library.sql using the three dots on the opposite side of this circl, and - - [ ] click import
 - [ ] Check Import status
 - [ ] Check if it actually imported
 
 #### In terminal
-
-- [ ] sudo mysql -u root
-- [ ] Once it says 'mysql>'
-- [ ] ALTER USER 'root'@'localhost' IDENTIFIED BY 'Password123#@';
-- [ ] Type exit to exit the SQL thingy
+- [x] Commit this rn!
 - [ ] type ```sudo apt-get install appmenu-gtk2-module appmenu-gtk3-module -y``` to solve the stupid GTK Mssage ive seen whenver i run something from terminal (apps)
 
 * * *
