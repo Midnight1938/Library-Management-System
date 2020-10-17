@@ -51,11 +51,12 @@ class MainApp(QMainWindow, ui):
         self.pushButton_10.clicked.connect(self.Remove_Book)
     ## ** Adding Users ** ##
         self.pushButton_11.clicked.connect(self.Add_User)
-        
+
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
 ####### ** ---------------- ** #######
+
     def Show_Theme(self):
         self.groupBox_3.show()
 
@@ -95,15 +96,15 @@ class MainApp(QMainWindow, ui):
         Book_author = self.comboBox_4.currentIndex()
         Book_publisher = self.comboBox_5.currentIndex()
         Book_price = self.lineEdit_5.text()
-        
+
         self.cur.execute('''
                          INSERT INTO Book(Book_name , Book_describe , Book_code , Book_category, Book_author, Book_publisher, Book_price)
                          VALUES (%s, %s, %s, %s, %s, %s, %s)
-                         ''', (Book_name , Book_describe , Book_code , Book_category, Book_author, Book_publisher, Book_price))
+                         ''', (Book_name, Book_describe, Book_code, Book_category, Book_author, Book_publisher, Book_price))
 
         self.db.commit()
         self.statusBar().showMessage("New Book added")
-        
+
         self.lineEdit_3.setText('')
         self.textEdit.setPlainText('')
         self.lineEdit_4.setText('')
@@ -117,12 +118,12 @@ class MainApp(QMainWindow, ui):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         book_title = self.lineEdit_7.text()
-        
+
         sql = (''' SELECT * FROM Book WHERE book_name = %s ''')
         self.cur.execute(sql, [(book_title)])
-        
+
         data = self.cur.fetchone()
         ### Data defined ###
         self.lineEdit_6.setText(data[1])
@@ -133,12 +134,11 @@ class MainApp(QMainWindow, ui):
         self.comboBox_8.setCurrentIndex(data[6])
         self.lineEdit_8.setText(str(data[7]))
 
-
     def Edit_Book(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         Book_name = self.lineEdit_6.text()
         Book_describe = self.textEdit_2.toPlainText()
         Book_code = self.lineEdit_9.text()
@@ -146,26 +146,25 @@ class MainApp(QMainWindow, ui):
         Book_author = self.comboBox_7.currentIndex()
         Book_publisher = self.comboBox_8.currentIndex()
         Book_price = self.lineEdit_8.text()
-        
-        
+
         search_book_title = self.lineEdit_7.text()
-        
+
         self.cur.execute('''
                          UPDATE Book SET Book_name=%s, Book_describe=%s, Book_code=%s, Book_category=%s, Book_author=%s, Book_publisher=%s, Book_price=%s WHERE book_name = %s
                          ''', (Book_name, Book_describe, Book_code, Book_category, Book_author, Book_publisher, Book_price, search_book_title))
 
         self.db.commit()
         self.statusBar().showMessage("Book Info Updated")
-        
 
     def Remove_Book(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         book_title = self.lineEdit_7.text()
-        
-        warning = QMessageBox.warning(self, 'Delete Book', 'Are you sure you want to delete this??', QMessageBox.Yes | QMessageBox.No)
+
+        warning = QMessageBox.warning(
+            self, 'Delete Book', 'Are you sure you want to delete this??', QMessageBox.Yes | QMessageBox.No)
         if warning == QMessageBox.Yes:
             sql = ''' DELETE FROM Book WHERE Book_name = %s '''
             self.cur.execute(sql, [(book_title)])
@@ -173,30 +172,29 @@ class MainApp(QMainWindow, ui):
             self.statusBar().showMessage("Book removed")
 
 
-
 ####### ** ---------------- ** #######
 ####### **   Users Stuff    ** #######
 ####### ** ---------------- ** #######
+
     def Add_User(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         Username = self.lineEdit_2.text()
         Email = self.lineEdit_10.text()
         Password = self.lineEdit_11.text()
         Re_Pass = self.lineEdit_12.text()
-        
+
         if Password == Re_Pass:
             self.cur.execute('''
                              INSERT INTO Users(user_name, user_email, user_password)
                              VALUES (%s,%s,%s)
                              ''', (Username, Email, Password))
-            
+
             self.db.commit()
             self.statusBar().showMessage("New user added Sucessfully")
-            
-            
+
         else:
             self.label_30.text("Passwords dont match")
 
@@ -251,6 +249,7 @@ class MainApp(QMainWindow, ui):
 
 
 ### !! Authors !! ###
+
     def Add_Author(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -292,6 +291,7 @@ class MainApp(QMainWindow, ui):
 
 
 ### !! Publishers !! ###
+
     def Add_Publisher(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -336,6 +336,7 @@ class MainApp(QMainWindow, ui):
 ####### ** Book UI Settings ** #######
 ####### ** ---------------- ** #######
 
+
     def Show_Category_CBB(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -345,12 +346,11 @@ class MainApp(QMainWindow, ui):
                          SELECT category_name FROM Categories
                          ''')
         data = self.cur.fetchall()
-        
+
         self.comboBox_3.clear()
         for category in data:
             self.comboBox_3.addItem(category[0])
             self.comboBox_6.addItem(category[0])
-
 
     def Show_Author_CBB(self):
         self.db = pymysql.connect(
@@ -361,12 +361,11 @@ class MainApp(QMainWindow, ui):
                          SELECT author_name FROM Authors
                          ''')
         data = self.cur.fetchall()
-        
+
         self.comboBox_4.clear()
         for category in data:
             self.comboBox_4.addItem(category[0])
             self.comboBox_7.addItem(category[0])
-
 
     def Show_Publisher_CBB(self):
         self.db = pymysql.connect(
@@ -377,12 +376,11 @@ class MainApp(QMainWindow, ui):
                          SELECT publisher_name FROM Publishers
                          ''')
         data = self.cur.fetchall()
-        
+
         self.comboBox_5.clear()
         for category in data:
             self.comboBox_5.addItem(category[0])
             self.comboBox_8.addItem(category[0])
-
 
 
 ####### !! ---------------- !! #######
