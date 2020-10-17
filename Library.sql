@@ -26,7 +26,7 @@ CREATE TABLE `Authors` (
   `idAuthor` int NOT NULL AUTO_INCREMENT,
   `Author_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idAuthor`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `Authors` (
 
 LOCK TABLES `Authors` WRITE;
 /*!40000 ALTER TABLE `Authors` DISABLE KEYS */;
-INSERT INTO `Authors` VALUES (1,'Rick Riordan'),(2,'Roald Dahl'),(3,'Lewis Caroll');
+INSERT INTO `Authors` VALUES (1,'Rick Riordan'),(2,'Roald Dahl'),(3,'Lewis Caroll'),(4,'Neil Gaiman');
 /*!40000 ALTER TABLE `Authors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,12 +49,12 @@ DROP TABLE IF EXISTS `Book`;
 CREATE TABLE `Book` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Book_name` varchar(45) DEFAULT NULL,
-  `Book_descibe` varchar(100) DEFAULT NULL,
+  `Book_describe` varchar(100) DEFAULT NULL,
   `Book_code` varchar(45) DEFAULT NULL,
   `Book_category` int DEFAULT NULL,
   `Book_author` int DEFAULT NULL,
   `Book_publisher` int DEFAULT NULL,
-  `Book_Price` int DEFAULT NULL,
+  `Book_price` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -79,7 +79,7 @@ CREATE TABLE `Categories` (
   `idCategory` int NOT NULL AUTO_INCREMENT,
   `Category_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idCategory`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `Categories` (
 
 LOCK TABLES `Categories` WRITE;
 /*!40000 ALTER TABLE `Categories` DISABLE KEYS */;
-INSERT INTO `Categories` VALUES (1,'Action'),(2,'Drama'),(6,'Romance');
+INSERT INTO `Categories` VALUES (1,'Action'),(2,'Drama'),(6,'Romance'),(7,'Fantasy');
 /*!40000 ALTER TABLE `Categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +128,7 @@ CREATE TABLE `Publishers` (
   `idPublisher` int NOT NULL AUTO_INCREMENT,
   `Publisher_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idPublisher`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,7 @@ CREATE TABLE `Publishers` (
 
 LOCK TABLES `Publishers` WRITE;
 /*!40000 ALTER TABLE `Publishers` DISABLE KEYS */;
-INSERT INTO `Publishers` VALUES (1,'Puffin Books'),(2,'Orient');
+INSERT INTO `Publishers` VALUES (1,'Puffin Books'),(2,'Orient'),(3,'S Chand and Co.'),(4,'Harper Collins');
 /*!40000 ALTER TABLE `Publishers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-10-16 18:30:24
+-- Dump completed on 2020-10-17  9:20:37

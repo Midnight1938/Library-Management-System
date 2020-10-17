@@ -142,7 +142,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_0">
      <attribute name="title">
@@ -358,16 +358,6 @@
          </rect>
         </property>
        </widget>
-       <widget class="QPlainTextEdit" name="plainTextEdit">
-        <property name="geometry">
-         <rect>
-          <x>30</x>
-          <y>150</y>
-          <width>451</width>
-          <height>261</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QPushButton" name="pushButton_7">
         <property name="geometry">
          <rect>
@@ -551,12 +541,7 @@
          <string>Book Price</string>
         </property>
        </widget>
-      </widget>
-      <widget class="QWidget" name="tab_6">
-       <attribute name="title">
-        <string>Book Data</string>
-       </attribute>
-       <widget class="QPlainTextEdit" name="plainTextEdit_2">
+       <widget class="QTextEdit" name="textEdit">
         <property name="geometry">
          <rect>
           <x>30</x>
@@ -566,6 +551,11 @@
          </rect>
         </property>
        </widget>
+      </widget>
+      <widget class="QWidget" name="tab_6">
+       <attribute name="title">
+        <string>Book Data</string>
+       </attribute>
        <widget class="QPushButton" name="pushButton_8">
         <property name="geometry">
          <rect>
@@ -823,6 +813,16 @@
           <y>260</y>
           <width>241</width>
           <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="textEdit_2">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>150</y>
+          <width>451</width>
+          <height>261</height>
          </rect>
         </property>
        </widget>
@@ -1256,7 +1256,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">
