@@ -83,7 +83,7 @@ class MainApp(QMainWindow, ui):
 ### !! Book Adding !! ##
     def Add_New_Book(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         Book_name = self.lineEdit_3.text()
@@ -113,7 +113,7 @@ class MainApp(QMainWindow, ui):
 ### !! Book Edits !! ###
     def Search_Books(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
         
         book_title = self.lineEdit_7.text()
@@ -134,7 +134,7 @@ class MainApp(QMainWindow, ui):
 
     def Edit_Book(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
         
         Book_name = self.lineEdit_6.text()
@@ -158,7 +158,7 @@ class MainApp(QMainWindow, ui):
 
     def Remove_Book(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
         
         book_title = self.lineEdit_7.text()
@@ -190,7 +190,7 @@ class MainApp(QMainWindow, ui):
 ### !! Categories !! ###
     def Add_Category(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         category_name = self.lineEdit_19.text()
@@ -207,7 +207,7 @@ class MainApp(QMainWindow, ui):
 ### *Showing categories* ###
     def Show_Category(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
@@ -231,7 +231,7 @@ class MainApp(QMainWindow, ui):
 ### !! Authors !! ###
     def Add_Author(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         author_name = self.lineEdit_20.text()
@@ -248,7 +248,7 @@ class MainApp(QMainWindow, ui):
 ### *Showing Authors* ###
     def Show_Authors(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
@@ -272,7 +272,7 @@ class MainApp(QMainWindow, ui):
 ### !! Publishers !! ###
     def Add_Publisher(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         publisher_name = self.lineEdit_21.text()
@@ -289,7 +289,7 @@ class MainApp(QMainWindow, ui):
 ### *Showing Publishers* ###
     def Show_Publishers(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
@@ -316,7 +316,7 @@ class MainApp(QMainWindow, ui):
 
     def Show_Category_CBB(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
@@ -332,7 +332,7 @@ class MainApp(QMainWindow, ui):
 
     def Show_Author_CBB(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
@@ -348,7 +348,7 @@ class MainApp(QMainWindow, ui):
 
     def Show_Publisher_CBB(self):
         self.db = pymysql.connect(
-            host='localhost', user='root', password='Password123#@', db='Library')
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
