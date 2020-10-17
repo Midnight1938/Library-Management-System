@@ -342,7 +342,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -668,7 +668,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Delete</string>
+         <string>Remove</string>
         </property>
        </widget>
        <widget class="QComboBox" name="comboBox_6">
@@ -1256,7 +1256,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab_7">
        <attribute name="title">

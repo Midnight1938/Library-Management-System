@@ -48,6 +48,8 @@ class MainApp(QMainWindow, ui):
     ## ** Editing Book info ** ##
         self.pushButton_9.clicked.connect(self.Search_Books)
         self.pushButton_8.clicked.connect(self.Edit_Book)
+        self.pushButton_10.clicked.connect(self.Remove_Book)
+        
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
@@ -155,7 +157,20 @@ class MainApp(QMainWindow, ui):
         
 
     def Remove_Book(self):
-        pass
+        self.db = pymysql.connect(
+            host='localhost', user='root', password='Password123#@', db='Library')
+        self.cur = self.db.cursor()
+        
+        book_title = self.lineEdit_7.text()
+        
+        warning = QMessageBox.warning(self, 'Delete Book', 'Are you sure?', QMessageBox.Yes | QMessageBox.No)
+        if warning == QMessageBox.Yes:
+            sql = ''' DELETE FROM Book WHERE Book_name = %s '''
+            self.cur.execute(sql, [(book_title)])
+            self.db.commit()
+            self.statusBar().showMessage("Book removed")
+
+
 
 ####### ** ---------------- ** #######
 ####### **   Users Stuff    ** #######
@@ -195,7 +210,9 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT category_name FROM Categories ''')
+        self.cur.execute('''
+                         SELECT category_name FROM Categories
+                         ''')
         data = self.cur.fetchall()
 
         if data:
@@ -212,7 +229,6 @@ class MainApp(QMainWindow, ui):
 
 
 ### !! Authors !! ###
-
     def Add_Author(self):
         self.db = pymysql.connect(
             host='localhost', user='root', password='Password123#@', db='Library')
@@ -235,7 +251,9 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT author_name FROM Authors ''')
+        self.cur.execute('''
+                         SELECT author_name FROM Authors
+                         ''')
         data = self.cur.fetchall()
 
         if data:
@@ -252,7 +270,6 @@ class MainApp(QMainWindow, ui):
 
 
 ### !! Publishers !! ###
-
     def Add_Publisher(self):
         self.db = pymysql.connect(
             host='localhost', user='root', password='Password123#@', db='Library')
@@ -275,7 +292,9 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT publisher_name FROM Publishers ''')
+        self.cur.execute('''
+                         SELECT publisher_name FROM Publishers
+                         ''')
         data = self.cur.fetchall()
 
         if data:
@@ -300,7 +319,9 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT category_name FROM Categories ''')
+        self.cur.execute('''
+                         SELECT category_name FROM Categories
+                         ''')
         data = self.cur.fetchall()
         
         self.comboBox_3.clear()
@@ -314,7 +335,9 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT author_name FROM Authors ''')
+        self.cur.execute('''
+                         SELECT author_name FROM Authors
+                         ''')
         data = self.cur.fetchall()
         
         self.comboBox_4.clear()
@@ -328,7 +351,9 @@ class MainApp(QMainWindow, ui):
             host='localhost', user='root', password='Password123#@', db='Library')
         self.cur = self.db.cursor()
 
-        self.cur.execute(''' SELECT publisher_name FROM Publishers ''')
+        self.cur.execute('''
+                         SELECT publisher_name FROM Publishers
+                         ''')
         data = self.cur.fetchall()
         
         self.comboBox_5.clear()
