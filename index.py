@@ -53,11 +53,17 @@ class MainApp(QMainWindow, ui):
         self.pushButton_11.clicked.connect(self.Add_User)
         self.pushButton_12.clicked.connect(self.Login_User)
         self.pushButton_13.clicked.connect(self.Edit_User_Info)
+    ## ** USING themes ** ##
+        self.pushButton_17.clicked.connect(self.Black_theme)
+        self.pushButton_18.clicked.connect(self.BreezeDrk_theme)
+        self.pushButton_19.clicked.connect(self.DrkOrange_theme)
+        self.pushButton_20.clicked.connect(self.Navy_theme)
 
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
 ####### ** ---------------- ** #######
+
 
     def Show_Theme(self):
         self.groupBox_3.show()
@@ -178,6 +184,7 @@ class MainApp(QMainWindow, ui):
 ####### **   Users Stuff    ** #######
 ####### ** ---------------- ** #######
 
+
     def Add_User(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -292,6 +299,7 @@ class MainApp(QMainWindow, ui):
 
 ### !! Authors !! ###
 
+
     def Add_Author(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -333,6 +341,7 @@ class MainApp(QMainWindow, ui):
 
 
 ### !! Publishers !! ###
+
 
     def Add_Publisher(self):
         self.db = pymysql.connect(
@@ -377,7 +386,6 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### ** Book UI Settings ** #######
 ####### ** ---------------- ** #######
-
 
     def Show_Category_CBB(self):
         self.db = pymysql.connect(
@@ -424,6 +432,30 @@ class MainApp(QMainWindow, ui):
             self.comboBox_5.addItem(category[0])
             self.comboBox_8.addItem(category[0])
 
+
+####### ** ---------------- ** #######
+####### **    UI Themes     ** #######
+####### ** ---------------- ** #######
+
+    def Black_theme(self):
+        style = open('Themes/Black.css', 'r')
+        style = style.read()
+        self.setStyleSheet(style)
+
+    def BreezeDrk_theme(self):
+        style = open('Themes/Breeze_dark_style.css', 'r')
+        style = style.read()
+        self.setStyleSheet(style)
+
+    def DrkOrange_theme(self):
+        style = open('Themes/DrkOrange.css', 'r')
+        style = style.read()
+        self.setStyleSheet(style)
+
+    def Navy_theme(self):
+        style = open('Themes/Navy.css', 'r')
+        style = style.read()
+        self.setStyleSheet(style)
 
 ####### !! ---------------- !! #######
 ####### **  Program Runner  ** #######

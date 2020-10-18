@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1109</width>
-    <height>580</height>
+    <width>1151</width>
+    <height>536</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1151</width>
+    <height>536</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1151</width>
+    <height>536</height>
+   </size>
   </property>
   <property name="mouseTracking">
    <bool>false</bool>
@@ -137,7 +149,7 @@
      <rect>
       <x>150</x>
       <y>0</y>
-      <width>961</width>
+      <width>1001</width>
       <height>541</height>
      </rect>
     </property>
@@ -151,10 +163,10 @@
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>0</x>
         <y>111</y>
-        <width>951</width>
-        <height>381</height>
+        <width>1001</width>
+        <height>401</height>
        </rect>
       </property>
       <column>
@@ -1534,10 +1546,10 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>760</x>
+      <x>800</x>
       <y>0</y>
       <width>351</width>
-      <height>531</height>
+      <height>541</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1579,8 +1591,11 @@
        <height>121</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.209184 rgba(98, 85, 83, 255), stop:1 rgba(255, 255, 255, 255));</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Light Black</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_18">
@@ -1592,8 +1607,12 @@
        <height>121</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(238, 238, 236);
+background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0.632653, y2:0.375, stop:0 rgba(211, 215, 207, 255), stop:0.719388 rgba(46, 52, 54, 255));</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Dark</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_19">
@@ -1605,8 +1624,12 @@
        <height>121</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(225, 92, 0, 255), stop:0.964286 rgba(0, 0, 0, 255));
+color: rgb(238, 238, 236);</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Dark Orange</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_20">
@@ -1618,8 +1641,11 @@
        <height>121</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0.0408163 rgba(243, 243, 243, 255), stop:1 rgba(52, 101, 164, 255));</string>
+     </property>
      <property name="text">
-      <string>PushButton</string>
+      <string>Light Blue</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_21">
@@ -1642,7 +1668,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1109</width>
+     <width>1151</width>
      <height>22</height>
     </rect>
    </property>

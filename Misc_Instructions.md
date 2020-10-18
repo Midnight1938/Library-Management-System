@@ -17,18 +17,5 @@
     - If so, Pull Repository before you start working (Like Right Now))
     - I will Check each change made and Comit (Probably)
 
-### Task for the day
-
-#### Import the sql from SQL_Workbench
-
-- [x] Look at the top. Serrver> Data Import.
-- [ ] Youll import from a self Contained File, Click that circle beside it and Locate this Library.sql using the three dots on the opposite side of this circl, and - - [ ] click import
-- [ ] Check Import status
-- [ ] Check if it actually imported
-
-#### In terminal
-- [x] Commit this rn!
-- [ ] type ```sudo apt-get install appmenu-gtk2-module appmenu-gtk3-module -y``` to solve the stupid GTK Mssage ive seen whenver i run something from terminal (apps)
-
 * * *
 [Go back](https://github.com/Midnight1938/Library-Management)
