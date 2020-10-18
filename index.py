@@ -204,18 +204,24 @@ class MainApp(QMainWindow, ui):
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
         
-        Username = self.LineEdit_14.text()
-        Password = self.LIneEdit_13.text()
+        Username = self.lineEdit_14.text()
+        Password = self.lIneEdit_13.text()
         
-        sql = ''' SELECT user_name , user_password FROM Users'''
+        sql = ''' SELECT * FROM Users'''
         
-    ## for info in self.cur.execute(sql): ##
-    ##      print(info)                   ##
-    self.cur.execute(sql)
-    Data = self.cur.fetchall()
-    for row in Data :
-        print(row)
-        
+        self.cur.execute(sql)
+        Data = self.cur.fetchall()
+        for row in Data:
+            if Username == row[1] and Password == row[3]:
+                print("user matched")
+                self.statusBar().showMessage("Username and password")
+                self.groupBox_4.setEnabled(True)
+
+                self.lineEdit_17.setText(row[1])
+                self.lineEdit_15.setText(row[2])
+                self.lineEdit_16.setText(row[3])
+
+
 
     def Edit_User_Info(self):
         pass
