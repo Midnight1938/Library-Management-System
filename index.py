@@ -209,7 +209,14 @@ class MainApp(QMainWindow, ui):
         
         sql = ''' SELECT user_name , user_password FROM Users'''
         
+    ## for info in self.cur.execute(sql): ##
+    ##      print(info)                   ##
+    self.cur.execute(sql)
+    Data = self.cur.fetchall()
+    for row in Data :
+        print(row)
         
+
     def Edit_User_Info(self):
         pass
 
