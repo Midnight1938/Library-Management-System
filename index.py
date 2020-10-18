@@ -53,7 +53,7 @@ class MainApp(QMainWindow, ui):
         self.pushButton_11.clicked.connect(self.Add_User)
         self.pushButton_12.clicked.connect(self.Login_User)
         self.pushButton_13.clicked.connect(self.Edit_User_Info)
-        
+
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
@@ -196,7 +196,7 @@ class MainApp(QMainWindow, ui):
 
             self.db.commit()
             self.label_30.setText("User Added Sucessfully")
-            
+
         else:
             self.label_30.setText("Passwords dont match")
 
@@ -204,12 +204,12 @@ class MainApp(QMainWindow, ui):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         Username = self.lineEdit_13.text()
         Password = self.lineEdit_14.text()
-        
+
         sql = ''' SELECT user_name, user_email, user_password FROM Users'''
-        
+
         self.cur.execute(sql)
         Data = self.cur.fetchall()
         for row in Data:
@@ -223,28 +223,26 @@ class MainApp(QMainWindow, ui):
 
             else:
                 self.statusBar().showMessage("User Not Found")
-                
-
 
     def Edit_User_Info(self):
-        
+
         Username = self.lineEdit_15.text()
         Email = self.lineEdit_16.text()
         Password = self.lineEdit_17.text()
         Re_Password = self.lineEdit_18.text()
-        
+
         if Password == Re_Password:
             self.db = pymysql.connect(
                 host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
             self.cur = self.db.cursor()
-            
+
             self.cur.execute('''
                              UPDATE Users SET user_name= %s, user_email= %s, user_password= %s WHERE user_name= %s
                              ''', (Username, Email, Password, Username))
             self.db.commit()
             self.statusBar().showMessage('User Info Updated')
             self.label_31.setText("Info Updated")
-            
+
         else:
             self.label_31.setText("Passwords dont match")
 
