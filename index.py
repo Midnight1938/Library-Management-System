@@ -51,7 +51,8 @@ class MainApp(QMainWindow, ui):
         self.pushButton_10.clicked.connect(self.Remove_Book)
     ## ** Adding Users ** ##
         self.pushButton_11.clicked.connect(self.Add_User)
-
+        self.pushButton_12.clicked.connect(self.Login_User)
+        
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
@@ -196,7 +197,7 @@ class MainApp(QMainWindow, ui):
             self.statusBar().showMessage("New user added Sucessfully")
 
         else:
-            self.label_30.text("Passwords dont match")
+            self.label_30.setText("Passwords dont match")
 
     def Login_User(self):
         pass
