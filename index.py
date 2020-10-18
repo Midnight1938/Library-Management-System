@@ -200,7 +200,7 @@ class MainApp(QMainWindow, ui):
             self.label_30.setText("Passwords dont match")
 
     def Login_User(self):
-         self.db = pymysql.connect(
+        self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
         
