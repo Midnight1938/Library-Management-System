@@ -981,7 +981,7 @@
         </column>
         <column>
          <property name="text">
-          <string>New Column</string>
+          <string>Client Email</string>
          </property>
         </column>
         <column>
@@ -1130,7 +1130,7 @@
          <rect>
           <x>40</x>
           <y>30</y>
-          <width>171</width>
+          <width>191</width>
           <height>41</height>
          </rect>
         </property>
@@ -1141,13 +1141,13 @@
          </font>
         </property>
         <property name="text">
-         <string>Look-up Client</string>
+         <string>Look-up Client (ID)</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="lineEdit_26">
         <property name="geometry">
          <rect>
-          <x>210</x>
+          <x>240</x>
           <y>30</y>
           <width>301</width>
           <height>41</height>

@@ -23,13 +23,16 @@ class MainApp(QMainWindow, ui):
         self.Show_Category_CBB()
         self.Show_Author_CBB()
         self.Show_Publisher_CBB()
+    ### Showing Clients ###
+        self.Show_Clients()
+        self.Show_Books()
 
     def Handle_UI_Changes(self):
         self.Hiding_Theme()
         self.tabWidget.tabBar().setVisible(False)
 
     def Handle_Buttons(self):
-        ## ** For Themes ** ##
+    ## ** For Themes ** ##
         self.pushButton_5.clicked.connect(self.Show_Theme)
         self.pushButton_21.clicked.connect(self.Hiding_Theme)
     ## ** For Navigation ** ##
@@ -99,7 +102,26 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
 ####### ** ---------------- ** #######
-### !! Book Adding !! ##
+
+    def Show_Books(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+        
+        self.cur.execute(''' SELECT Book_name, Book_describe, Book_code, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
+        data = self.cur.fetchall()
+        self.tableWidget_6.insertRow(0)
+        
+        for row, form in enumerate(data):
+            for column, item in enumerate(form):
+                self.tableWidget_6.setItem(row, column, QTableWidgetItem(str(item)))
+                column += 1
+                
+            Row_position = self.tableWidget_6.rowCount()
+            self.tableWidget_6.insertRow(Row_position)
+        self.db.close()
+
+
     def Add_New_Book(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -129,7 +151,6 @@ class MainApp(QMainWindow, ui):
         self.comboBox_5.setCurrentIndex(0)
         self.lineEdit_5.setText('')
 
-### !! Book Edits !! ###
     def Search_Books(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -209,7 +230,22 @@ class MainApp(QMainWindow, ui):
         self.statusBar().showMessage("Client added successfully")
 
     def Show_Clients(self):
-        pass
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+        
+        self.cur.execute(''' SELECT client_name, client_email, client_ID FROM Clients ''')
+        data = self.cur.fetchall()
+        self.tableWidget_5.insertRow(0)
+        
+        for row, form in enumerate(data):
+            for column, item in enumerate(form):
+                self.tableWidget_5.setItem(row, column, QTableWidgetItem(str(item)))
+                column += 1
+                
+            Row_position = self.tableWidget_5.rowCount()
+            self.tableWidget_5.insertRow(Row_position)
+        self.db.close()
 
     def Search_Clients(self):
         self.db = pymysql.connect(
@@ -225,7 +261,6 @@ class MainApp(QMainWindow, ui):
         self.lineEdit_28.setText(data[1])
         self.lineEdit_27.setText(data[2])
         self.lineEdit_25.setText(data[3])
-
 
     def Edit_Clients(self):
         self.db = pymysql.connect(
@@ -339,7 +374,7 @@ class MainApp(QMainWindow, ui):
 ####### ** ----------------- ** #######
 ####### ** Tweaks tab Things ** #######
 ####### ** ----------------- ** #######
-### !! Categories !! ###
+    ### !! Categories !! ###
     def Add_Category(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -356,7 +391,7 @@ class MainApp(QMainWindow, ui):
         self.Show_Category()
         self.Show_Category_CBB()
 
-### *Showing categories* ###
+    ### *Showing categories* ###
     def Show_Category(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -380,7 +415,7 @@ class MainApp(QMainWindow, ui):
                 self.tableWidget_2.insertRow(Row_Position)
 
 
-### !! Authors !! ###
+    ### !! Authors !! ###
 
 
     def Add_Author(self):
@@ -399,7 +434,7 @@ class MainApp(QMainWindow, ui):
         self.Show_Authors()
         self.Show_Author_CBB()
 
-### *Showing Authors* ###
+    ### *Showing Authors* ###
     def Show_Authors(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -423,7 +458,7 @@ class MainApp(QMainWindow, ui):
                 self.tableWidget_3.insertRow(Row_Position)
 
 
-### !! Publishers !! ###
+    ### !! Publishers !! ###
 
 
     def Add_Publisher(self):
@@ -442,7 +477,7 @@ class MainApp(QMainWindow, ui):
         self.Show_Publishers()
         self.Show_Publisher_CBB()
 
-### *Showing Publishers* ###
+    ### *Showing Publishers* ###
     def Show_Publishers(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
