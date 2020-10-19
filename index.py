@@ -197,14 +197,14 @@ class MainApp(QMainWindow, ui):
         Client_email = self.lineEdit_23.text()
         Client_ID = self.lineEdit_24.text()
 
-         self.db = pymysql.connect(
+        self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
         self.cur.execute('''
                          INSERT INTO Clients(Client_name.Client_email,Client_ID)
                          VALUES(%s,%s,%s)
-                         ''',(Client_name,Client_email,Client_ID)
+                         ''',(Client_name,Client_email,Client_ID))
         self.db.commit()
         self.db.close()                 
         self.statusBar().showMessage("Client added successfully")
@@ -214,13 +214,55 @@ class MainApp(QMainWindow, ui):
         pass
 
     def Search_Clients(self):
-        pass
+        Client_ID = self.lineEdit_25.text()
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        sql = '''SELECT * FROM Clients WHERE Client_ID = %s '''
+        self.cur.execute(sql,[(Client_ID)])
+        data = self.cur.fetchone()
+        print(data)
+
+        self.lineEdit_28.setText(data[1])
+        self.lineEdit_27.setText(data[2])
+        self.lineEdit_26.setText(data[3])
 
     def Edit_Clients(self):
-        pass
+        Client_original_ID = self.lineEdit_25.text()
+        Client_name = self.lineEdit_28.text()
+        Client_email = self.lineEdit_27.text()
+        Client_ID = self.lineEdit_26.text()
+        
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        self.cur.execute('''
+                         UPDATE Clients SET Client_name = %s,Client_email = %s,Client_ID = %s WHERE Client_ID = %s
+                         ''',(Client_name,Client_email,Client_ID,Client_original_ID))
+        self.db.commit()
+        self.db.close()
+        self.statusBar.showMessage('Client Data Update')
 
     def Delete_Clients(self):
-        pass
+        Client_original_ID = self.lineEdit_25.text()
+
+        warning_message = QMessageBox.warning(self,'Delete client','are you sure you want to delete this client',QMessageBox.Yes | QMessageBox.No)
+        
+        if warning_message == QMessageBox.Yes :
+
+            self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+            self.cur = self.db.cursor()
+            
+            sql = '''DELETE FROM Clients WHERE Client_ID = %s'''
+            self.cur.execute(sql,[(Client_original_ID)])
+            
+            self.db.commit()
+            self.db.close()
+            self.statusBar.showMessage('Client deleted successfully')
+        
 
 
     def Add_User(self):
