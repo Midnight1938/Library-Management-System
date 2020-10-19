@@ -37,6 +37,7 @@ class MainApp(QMainWindow, ui):
         self.pushButton_2.clicked.connect(self.Open_Books)
         self.pushButton_3.clicked.connect(self.Open_Users)
         self.pushButton_4.clicked.connect(self.Open_Tweaks)
+        self.pushButton_26.clicked.connect(self.Open_Clients)
     ## ** For Books ** ##
         self.pushButton_7.clicked.connect(self.Add_New_Book)
     ## ** Adding Categories ** ##
@@ -80,13 +81,17 @@ class MainApp(QMainWindow, ui):
     def Open_Books(self):
         pass
         self.tabWidget.setCurrentIndex(1)
-
+    
     def Open_Users(self):
+        self.tabWidget.setCurrentIndex(3)
+
+    def Open_Clients(self):
+        pass
         self.tabWidget.setCurrentIndex(2)
 
     def Open_Tweaks(self):
         pass
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(4)
 
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######

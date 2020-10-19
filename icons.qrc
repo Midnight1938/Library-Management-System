@@ -6,5 +6,6 @@
         <file>Icons/theme.png</file>
         <file>Icons/to-do-list.png</file>
         <file>Icons/user-data.png</file>
+        <file>Icons/student.png</file>
     </qresource>
 </RCC>
