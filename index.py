@@ -59,7 +59,11 @@ class MainApp(QMainWindow, ui):
         self.pushButton_18.clicked.connect(self.BreezeDrk_theme)
         self.pushButton_19.clicked.connect(self.DrkOrange_theme)
         self.pushButton_20.clicked.connect(self.Navy_theme)
-
+        
+        self.pushButton_22.clicked.connect(self.Add_New_Client)
+        self.pushButton_24.clicked.connect(self.Search_Clients)
+        self.pushButton_23.clicked.connect(self.Edit_Clients)
+        self.pushButton_25.clicked.connect(self.Delete_Clients)
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
@@ -188,6 +192,35 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### **   Users Stuff    ** #######
 ####### ** ---------------- ** #######
+    def Add_New_Client(self):
+        Client_name = self.lineEdit_22.text()
+        Client_email = self.lineEdit_23.text()
+        Client_ID = self.lineEdit_24.text()
+
+         self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        self.cur.execute('''
+                         INSERT INTO Clients(Client_name.Client_email,Client_ID)
+                         VALUES(%s,%s,%s)
+                         ''',(Client_name,Client_email,Client_ID)
+        self.db.commit()
+        self.db.close()                 
+        self.statusBar().showMessage("Client added successfully")
+
+
+    def Show_Clients(self):
+        pass
+
+    def Search_Clients(self):
+        pass
+
+    def Edit_Clients(self):
+        pass
+
+    def Delete_Clients(self):
+        pass
 
 
     def Add_User(self):
