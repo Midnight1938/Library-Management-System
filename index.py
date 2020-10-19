@@ -54,21 +54,20 @@ class MainApp(QMainWindow, ui):
         self.pushButton_11.clicked.connect(self.Add_User)
         self.pushButton_12.clicked.connect(self.Login_User)
         self.pushButton_13.clicked.connect(self.Edit_User_Info)
+    ## ** Stuff with Clients ** ##
+        self.pushButton_22.clicked.connect(self.Add_New_Client)
+        self.pushButton_24.clicked.connect(self.Search_Clients)
+        self.pushButton_23.clicked.connect(self.Edit_Clients)
+        self.pushButton_25.clicked.connect(self.Delete_Clients)
     ## ** USING themes ** ##
         self.pushButton_17.clicked.connect(self.Black_theme)
         self.pushButton_18.clicked.connect(self.BreezeDrk_theme)
         self.pushButton_19.clicked.connect(self.DrkOrange_theme)
         self.pushButton_20.clicked.connect(self.Navy_theme)
-        
-        self.pushButton_22.clicked.connect(self.Add_New_Client)
-        self.pushButton_24.clicked.connect(self.Search_Clients)
-        self.pushButton_23.clicked.connect(self.Edit_Clients)
-        self.pushButton_25.clicked.connect(self.Delete_Clients)
 
 ####### ** ---------------- ** #######
 ####### **  Theme Tweaking  ** #######
 ####### ** ---------------- ** #######
-
 
     def Show_Theme(self):
         self.groupBox_3.show()
@@ -85,7 +84,7 @@ class MainApp(QMainWindow, ui):
     def Open_Books(self):
         pass
         self.tabWidget.setCurrentIndex(1)
-    
+
     def Open_Users(self):
         self.tabWidget.setCurrentIndex(3)
 
@@ -193,76 +192,78 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 
     def Add_New_Client(self):
-        Client_name = self.lineEdit_22.text()
-        Client_email = self.lineEdit_23.text()
-        Client_ID = self.lineEdit_24.text()
-
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
-        self.cur.execute('''
-                         INSERT INTO Clients (Client_name, Client_email, Client_ID)
-                         VALUES(%s,%s,%s)
-                         ''',(Client_name,Client_email,Client_ID))
-        self.db.commit()
-        self.db.close()                 
-        self.statusBar().showMessage("Client added successfully")
+        Client_name = self.lineEdit_22.text()
+        Client_email = self.lineEdit_24.text()
+        Client_ID = self.lineEdit_23.text()
 
+        self.cur.execute('''
+                         INSERT INTO Clients (client_name, client_email, client_ID)
+                         VALUES(%s,%s,%s)
+                         ''', (Client_name, Client_email, Client_ID))
+        self.db.commit()
+        self.db.close()
+        self.statusBar().showMessage("Client added successfully")
 
     def Show_Clients(self):
         pass
 
     def Search_Clients(self):
-        Client_ID = self.lineEdit_25.text()
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+        
+        Client_ID = self.lineEdit_26.text()
+
+        sql = '''SELECT * FROM Clients WHERE Client_ID = %s '''
+        self.cur.execute(sql, [(Client_ID)])
+        data = self.cur.fetchone()
+        
+        self.lineEdit_28.setText(data[1])
+        self.lineEdit_27.setText(data[2])
+        self.lineEdit_25.setText(data[3])
+
+
+    def Edit_Clients(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
-        sql = '''SELECT * FROM Clients WHERE Client_ID = %s '''
-        self.cur.execute(sql,[(Client_ID)])
-        data = self.cur.fetchone()
-        print(data)
-
-        self.lineEdit_28.setText(data[0])
-        self.lineEdit_27.setText(data[1])
-        self.lineEdit_26.setText(data[2])
-
-    def Edit_Clients(self):
-        Client_original_ID = self.lineEdit_25.text()
+        Client_init_ID = self.lineEdit_25.text()
         Client_name = self.lineEdit_28.text()
         Client_email = self.lineEdit_27.text()
         Client_ID = self.lineEdit_26.text()
-        
-        self.db = pymysql.connect(
-            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
-        self.cur = self.db.cursor()
+
 
         self.cur.execute('''
                          UPDATE Clients SET Client_name = %s,Client_email = %s,Client_ID = %s WHERE Client_ID = %s
-                         ''',(Client_name,Client_email,Client_ID,Client_original_ID))
+                         ''', (Client_name, Client_email, Client_ID, Client_init_ID))
         self.db.commit()
+        self.statusBar().showMessage('Client Data Updated')
         self.db.close()
-        self.statusBar.showMessage('Client Data Update')
 
     def Delete_Clients(self):
         Client_original_ID = self.lineEdit_25.text()
 
-        warning_message = QMessageBox.warning(self,'Delete client','are you sure you want to delete this client',QMessageBox.Yes | QMessageBox.No)
-        
-        if warning_message == QMessageBox.Yes :
+        warning_message = QMessageBox.warning(
+            self, 'Delete client', 'Are you sure you want to delete this Client?', QMessageBox.Yes | QMessageBox.No)
+
+        if warning_message == QMessageBox.Yes:
 
             self.db = pymysql.connect(
-            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+                host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
             self.cur = self.db.cursor()
-            
+
             sql = '''DELETE FROM Clients WHERE Client_ID = %s'''
-            self.cur.execute(sql,[(Client_original_ID)])
-            
+            self.cur.execute(sql, [(Client_original_ID)])
+
             self.db.commit()
             self.db.close()
-            self.statusBar.showMessage('Client deleted successfully')
-        
+            self.statusBar().showMessage('Client Deleted')
+
 ####### ** ---------------- ** #######
 ####### **   Users Stuff    ** #######
 ####### ** ---------------- ** #######
