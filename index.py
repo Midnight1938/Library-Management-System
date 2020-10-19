@@ -188,10 +188,10 @@ class MainApp(QMainWindow, ui):
             self.db.commit()
             self.statusBar().showMessage("Book removed")
 
+####### ** ---------------- ** #######
+####### **   Client Stuff   ** #######
+####### ** ---------------- ** #######
 
-####### ** ---------------- ** #######
-####### **   Users Stuff    ** #######
-####### ** ---------------- ** #######
     def Add_New_Client(self):
         Client_name = self.lineEdit_22.text()
         Client_email = self.lineEdit_23.text()
@@ -202,7 +202,7 @@ class MainApp(QMainWindow, ui):
         self.cur = self.db.cursor()
 
         self.cur.execute('''
-                         INSERT INTO Clients(Client_name.Client_email,Client_ID)
+                         INSERT INTO Clients (Client_name, Client_email, Client_ID)
                          VALUES(%s,%s,%s)
                          ''',(Client_name,Client_email,Client_ID))
         self.db.commit()
@@ -224,9 +224,9 @@ class MainApp(QMainWindow, ui):
         data = self.cur.fetchone()
         print(data)
 
-        self.lineEdit_28.setText(data[1])
-        self.lineEdit_27.setText(data[2])
-        self.lineEdit_26.setText(data[3])
+        self.lineEdit_28.setText(data[0])
+        self.lineEdit_27.setText(data[1])
+        self.lineEdit_26.setText(data[2])
 
     def Edit_Clients(self):
         Client_original_ID = self.lineEdit_25.text()
@@ -263,7 +263,9 @@ class MainApp(QMainWindow, ui):
             self.db.close()
             self.statusBar.showMessage('Client deleted successfully')
         
-
+####### ** ---------------- ** #######
+####### **   Users Stuff    ** #######
+####### ** ---------------- ** #######
 
     def Add_User(self):
         self.db = pymysql.connect(
