@@ -154,7 +154,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab_0">
      <attribute name="title">
@@ -378,7 +378,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(141, 110, 110);</string>
+         <string notr="true">background-color: rgb(155, 61, 132);</string>
         </property>
         <property name="text">
          <string>List of Books in the Library</string>
@@ -2116,8 +2116,8 @@ color: rgb(238, 238, 236);</string>
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>Icons/student.png</normaloff>Icons/student.png</iconset>
+     <iconset resource="icons.qrc">
+      <normaloff>:/Icons/student.png</normaloff>:/Icons/student.png</iconset>
     </property>
     <property name="iconSize">
      <size>
