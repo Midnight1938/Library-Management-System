@@ -117,13 +117,16 @@ class MainApp(QMainWindow, ui):
         Cur_Date = datetime.date.today()
         To_date = Cur_Date + datetime.timedelta(days=Duration) 
 
+        print(Cur_Date)
+        print(To_date)
+        
         self.cur.execute('''
-                         INSERT INTO Day-To-Day_Tasks(book_name, client, type, days, date, to_date )
+                         INSERT INTO Daily_Tasks(book_name, client, type, duration, date, to_date )
                          VALUES (%s, %s, %s, %s, %s, %s)
                          ''', (Book_title, Client, Type, Duration, Cur_Date, To_date))
         
         self.db.commit()
-        self.statusBar.showMessage("Book Logged Sucessfully")
+        self.statusBar().showMessage("Book Logged Sucessfully")
 
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
