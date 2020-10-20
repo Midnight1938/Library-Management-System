@@ -1,0 +1,6 @@
+wheel
+pyqt5
+pymysql
+xlrdxlsxwriter
+datetime
+sys
