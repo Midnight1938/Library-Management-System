@@ -9,7 +9,7 @@ import pymysql
 
 
 ui, _ = loadUiType('Library.ui')
-login,_ = loadUiType('Login.ui')
+login,_ = loadUiType('LogWindow.ui')
 
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
