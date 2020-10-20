@@ -164,9 +164,9 @@
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>111</y>
+        <y>100</y>
         <width>1001</width>
-        <height>401</height>
+        <height>331</height>
        </rect>
       </property>
       <column>
@@ -396,6 +396,25 @@
        <string>Enter Student ID</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="pushButton_29">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>440</y>
+        <width>171</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>URW Bookman</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Export as csv</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="tab_1">
      <attribute name="title">
@@ -450,7 +469,7 @@
           <x>0</x>
           <y>60</y>
           <width>1001</width>
-          <height>401</height>
+          <height>331</height>
          </rect>
         </property>
         <column>
@@ -488,6 +507,25 @@
           <string>M.R.P</string>
          </property>
         </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_27">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>410</y>
+          <width>171</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>URW Bookman</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Export as csv</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_5">
@@ -1028,7 +1066,7 @@
           <x>0</x>
           <y>60</y>
           <width>1001</width>
-          <height>401</height>
+          <height>331</height>
          </rect>
         </property>
         <column>
@@ -1046,6 +1084,25 @@
           <string>Client Name</string>
          </property>
         </column>
+       </widget>
+       <widget class="QPushButton" name="pushButton_28">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>410</y>
+          <width>171</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>URW Bookman</family>
+          <pointsize>11</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Export as csv</string>
+        </property>
        </widget>
       </widget>
       <widget class="QWidget" name="tab_11">
@@ -2047,9 +2104,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>790</x>
+      <x>780</x>
       <y>0</y>
-      <width>361</width>
+      <width>371</width>
       <height>541</height>
      </rect>
     </property>

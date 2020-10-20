@@ -2,14 +2,18 @@ from PyQt5.uic import loadUiType
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from xlrd import *
 import datetime
 import sys
 import pymysql
-pymysql.install_as_MySQLdb()
+
 
 ui, _ = loadUiType('Library.ui')
 login,_ = loadUiType('Login.ui')
 
+####### !! ---------------- !! #######
+####### !!  Login Windows   !! #######
+####### !! ---------------- !! #######
 class Login(QWidget,login):
     def __init__(self):
         QWidget.__init__(self)
@@ -39,7 +43,9 @@ class Login(QWidget,login):
             else:
                 self.label.setText("Username or Password is incorrect")
                 
-
+####### !! ---------------- !! #######
+####### !!   Main Windows   !! #######
+####### !! ---------------- !! #######
 class MainApp(QMainWindow, ui):
     def __init__(self):
         QMainWindow.__init__(self)
