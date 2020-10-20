@@ -171,11 +171,6 @@
       </property>
       <column>
        <property name="text">
-        <string>New Column</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>Book Name</string>
        </property>
       </column>
