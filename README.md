@@ -1,12 +1,9 @@
 # Library Management Structure
 
 To install dependencies run:
-```py
-pip install -r requirements.txt
-```
+```pip install -r requirements.txt```
 
-</br>
-[Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
 </br>
 
 ## Library system
