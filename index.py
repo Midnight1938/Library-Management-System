@@ -8,6 +8,37 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 ui, _ = loadUiType('Library.ui')
+login,_ = loadUiType('login.ui')
+
+class Login(QWidget,login):
+    def __init__(self):
+        QWidget.__init__(self)
+        self.setupUi(self)
+        self.pushButton.clicked.connect(self.Handle_Login)
+
+    def Handle_Login(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        Username = self.lineEdit_13.text()
+        Password = self.lineEdit_14.text()
+
+        sql = ''' SELECT * FROM Users'''
+
+        self.cur.execute(sql)
+        Data = self.cur.fetchall()
+        for row in Data:
+            if Username == row[1] and Password == row[3]:
+                print('user matched')
+                self.window2 = MainApp()
+                self.close()
+                self.window2.show()
+
+            else:
+                self.label.setText('Make sure to enter the correct username and password')
+                
+
 
 
 class MainApp(QMainWindow, ui):
@@ -402,18 +433,19 @@ class MainApp(QMainWindow, ui):
         Username = self.lineEdit_13.text()
         Password = self.lineEdit_14.text()
 
-        sql = ''' SELECT user_name, user_email, user_password FROM Users'''
+        sql = ''' SELECT * FROM Users'''
 
         self.cur.execute(sql)
         Data = self.cur.fetchall()
         for row in Data:
-            if Username == row[0] and Password == row[2]:
+            if Username == row[1] and Password == row[3]:
+                print('user matched')
                 self.statusBar().showMessage("User Found")
                 self.groupBox_4.setEnabled(True)
 
-                self.lineEdit_15.setText(row[0])
-                self.lineEdit_16.setText(row[1])
-                self.lineEdit_17.setText(row[2])
+                self.lineEdit_17.setText(row[1])
+                self.lineEdit_15.setText(row[2])
+                self.lineEdit_16.setText(row[3])
 
             else:
                 self.statusBar().showMessage("User Not Found")
