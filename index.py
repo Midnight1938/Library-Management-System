@@ -12,8 +12,6 @@ from xlsxwriter import *
 ui, _ = loadUiType('Library.ui')
 login, _ = loadUiType('LogWindow.ui')
 
-### TODO: Fix User editor ###
-
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
 ####### !! ---------------- !! #######
@@ -39,7 +37,7 @@ class Login(QWidget, login):
         Data = self.cur.fetchall()
         for row in Data:
             if Username == row[1] and Password == row[3]:
-                self.label.setText("Logging In")
+                self.statusBar().showMessage("Logging In")
                 self.window2 = MainApp()
                 self.close()
                 self.window2.show()
@@ -461,9 +459,9 @@ class MainApp(QMainWindow, ui):
                 self.statusBar().showMessage("User Found")
                 self.groupBox_4.setEnabled(True)
 
-                self.lineEdit_17.setText(row[1])
-                self.lineEdit_15.setText(row[2])
-                self.lineEdit_16.setText(row[3])
+                self.lineEdit_15.setText(row[1])
+                self.lineEdit_16.setText(row[2])
+                self.lineEdit_17.setText(row[3])
 
             else:
                 self.statusBar().showMessage("User Not Found")
