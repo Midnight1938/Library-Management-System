@@ -1,21 +1,23 @@
-from PyQt5.uic import loadUiType
+import datetime
+import sys
+
+import pymysql
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from PyQt5.uic import loadUiType
 from xlrd import *
 from xlsxwriter import *
-import datetime
-import sys
-import pymysql
-
 
 ui, _ = loadUiType('Library.ui')
-login,_ = loadUiType('LogWindow.ui')
+login, _ = loadUiType('LogWindow.ui')
 
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
 ####### !! ---------------- !! #######
-class Login(QWidget,login):
+
+
+class Login(QWidget, login):
     def __init__(self):
         QWidget.__init__(self)
         self.setupUi(self)
@@ -28,7 +30,6 @@ class Login(QWidget,login):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-
 
         sql = ''' SELECT * FROM Users'''
 
@@ -43,10 +44,12 @@ class Login(QWidget,login):
 
             else:
                 self.label.setText("Username or Password is incorrect")
-                
+
 ####### !! ---------------- !! #######
 ####### !!   Main Windows   !! #######
 ####### !! ---------------- !! #######
+
+
 class MainApp(QMainWindow, ui):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -67,12 +70,13 @@ class MainApp(QMainWindow, ui):
 
     ### Operations ###
         self.Show_Operation()
+
     def Handle_UI_Changes(self):
         self.Hiding_Theme()
         self.tabWidget.tabBar().setVisible(False)
 
     def Handle_Buttons(self):
-        ## ** For Themes ** ##
+    ## ** For Themes ** ##
         self.pushButton_5.clicked.connect(self.Show_Theme)
         self.pushButton_21.clicked.connect(self.Hiding_Theme)
     ## ** For Navigation ** ##
@@ -109,7 +113,11 @@ class MainApp(QMainWindow, ui):
         self.pushButton_20.clicked.connect(self.Navy_theme)
     ## ** Day-to-Day ** ##
         self.pushButton_6.clicked.connect(self.Daily_Operations)
-
+    ## ** Exports ** ##
+        self.pushButton_29.clicked.connect(self.Export_processes)
+        self.pushButton_27.clicked.connect(self.Export_Book_Info)
+        self.pushButton_28.clicked.connect(self.Export_Clients)
+        
 ####### ** ---------------- ** #######
 ####### ** Top_Bar Tweaking ** #######
 ####### ** ---------------- ** #######
@@ -148,17 +156,18 @@ class MainApp(QMainWindow, ui):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         self.cur.execute('''
                          SELECT Book_name, Client, Type, Duration, To_date from Daily_Tasks
                          ''')
         data = self.cur.fetchall()
-        
+
         self.tableWidget.setRowCount(0)
         self.tableWidget.insertRow(0)
         for row, form in enumerate(data):
             for column, item in enumerate(form):
-                self.tableWidget.setItem(row, column, QTableWidgetItem(str(item)))
+                self.tableWidget.setItem(
+                    row, column, QTableWidgetItem(str(item)))
                 column += 1
             row_position = self.tableWidget.rowCount()
             self.tableWidget.insertRow(row_position)
@@ -173,24 +182,25 @@ class MainApp(QMainWindow, ui):
         Type = self.comboBox.currentText()
         Duration = self.comboBox_2.currentIndex() + 1
         Cur_Date = datetime.date.today()
-        To_date = Cur_Date + datetime.timedelta(days=Duration) 
+        To_date = Cur_Date + datetime.timedelta(days=Duration)
 
         print(Cur_Date)
         print(To_date)
-        
+
         self.cur.execute('''
                          INSERT INTO Daily_Tasks(book_name, client, type, duration, date, to_date )
                          VALUES (%s, %s, %s, %s, %s, %s)
                          ''', (Book_title, Client, Type, Duration, Cur_Date, To_date))
-        
+
         self.db.commit()
         self.Show_Operation()
         self.statusBar().showMessage("Book Logged Sucessfully")
-        
+
 
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
 ####### ** ---------------- ** #######
+
 
     def Show_Books(self):
         self.db = pymysql.connect(
@@ -608,6 +618,7 @@ class MainApp(QMainWindow, ui):
 ####### ** Book UI Settings ** #######
 ####### ** ---------------- ** #######
 
+
     def Show_Category_CBB(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -658,6 +669,7 @@ class MainApp(QMainWindow, ui):
 ####### ??    UI Themes     ?? #######
 ####### ** ---------------- ** #######
 
+
     def Black_theme(self):
         style = open('Themes/Black.css', 'r')
         style = style.read()
@@ -681,8 +693,34 @@ class MainApp(QMainWindow, ui):
 ####### !! ---------------- !! #######
 ####### **    Exporting     ** #######
 ####### !! ---------------- !! #######
+    def Export_processes(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
 
+        self.cur.execute('''
+                         SELECT Book_name, Client, Type, Duration, To_date from Daily_Tasks
+                         ''')
+        data = self.cur.fetchall()
+        XlSheet = Workbook('Daily_Operation.xlsx')
+        sheet1 = XlSheet.add_worksheet()
+        
+        sheet1.write(0,0, 'Book Name')
+        sheet1.write(0,0, 'Client Name')
+        sheet1.write(0,0, 'Book Name')
+        sheet1.write(0,0, 'Book Name')
+    
+    def Export_Book_Info(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
 
+        self.cur.execute(
+            ''' SELECT Book_code, Book_name, Book_describe, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
+        data = self.cur.fetchall()
+    
+    def Export_Clients(self):
+        pass
 
 ####### !! ---------------- !! #######
 ####### **  Program Runner  ** #######
