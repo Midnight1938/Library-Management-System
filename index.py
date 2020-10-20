@@ -28,6 +28,8 @@ class MainApp(QMainWindow, ui):
         self.Show_Clients()
         self.Show_Books()
 
+    ### Operations ###
+        self.Show_Operation()
     def Handle_UI_Changes(self):
         self.Hiding_Theme()
         self.tabWidget.tabBar().setVisible(False)
@@ -105,6 +107,25 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### !! Day-To-Day Stuff !! #######
 ####### ** ---------------- ** #######
+    def Show_Operation(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+        
+        self.cur.execute('''
+                         SELECT Book_name, Client, Type, Duration, To_date from Daily_Tasks
+                         ''')
+        data = self.cur.fetchall()
+        
+        self.tableWidget.setRowCount(0)
+        self.tableWidget.insertRow(0)
+        for row, form in enumerate(data):
+            for column, item in enumerate(form):
+                self.tableWidget.setItem(row, column, QTableWidgetItem(str(item)))
+                column += 1
+            row_position = self.tableWidget.rowCount()
+            self.tableWidget.insertRow(row_position)
+
     def Daily_Operations(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -126,7 +147,9 @@ class MainApp(QMainWindow, ui):
                          ''', (Book_title, Client, Type, Duration, Cur_Date, To_date))
         
         self.db.commit()
+        self.Show_Operation()
         self.statusBar().showMessage("Book Logged Sucessfully")
+        
 
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
