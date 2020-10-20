@@ -2,6 +2,7 @@ from PyQt5.uic import loadUiType
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+import datetime
 import sys
 import pymysql
 pymysql.install_as_MySQLdb()
@@ -32,7 +33,7 @@ class MainApp(QMainWindow, ui):
         self.tabWidget.tabBar().setVisible(False)
 
     def Handle_Buttons(self):
-    ## ** For Themes ** ##
+        ## ** For Themes ** ##
         self.pushButton_5.clicked.connect(self.Show_Theme)
         self.pushButton_21.clicked.connect(self.Hiding_Theme)
     ## ** For Navigation ** ##
@@ -67,9 +68,11 @@ class MainApp(QMainWindow, ui):
         self.pushButton_18.clicked.connect(self.BreezeDrk_theme)
         self.pushButton_19.clicked.connect(self.DrkOrange_theme)
         self.pushButton_20.clicked.connect(self.Navy_theme)
+    ## ** Day-to-Day ** ##
+        self.pushButton_6.clicked.connect(self.Daily_Operations)
 
 ####### ** ---------------- ** #######
-####### **  Theme Tweaking  ** #######
+####### ** Top_Bar Tweaking ** #######
 ####### ** ---------------- ** #######
 
     def Show_Theme(self):
@@ -100,6 +103,26 @@ class MainApp(QMainWindow, ui):
         self.tabWidget.setCurrentIndex(4)
 
 ####### ** ---------------- ** #######
+####### !! Day-To-Day Stuff !! #######
+####### ** ---------------- ** #######
+    def Daily_Operations(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        Book_title = self.lineEdit.text()
+        Type = self.comboBox.setCurrentText()
+        Duration = self.comboBox_2.setCurrentIndex() + 1
+        Date = str(datetime.date.today())
+
+        self.cur.execute('''
+                         INSERT INTO Day-To-Day_Tasks(Book_name, Type, Days, Date)
+                         VALUES (%s,%s,%s,%s)
+                         ''', (Book_title, Type, Duration, Date))
+        self.db.commit()
+        self.statusBar.showMessage("Book Logged Sucessfully")
+
+####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
 ####### ** ---------------- ** #######
 
@@ -107,20 +130,22 @@ class MainApp(QMainWindow, ui):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
-        self.cur.execute(''' SELECT Book_name, Book_describe, Book_code, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
+
+        self.cur.execute(
+            ''' SELECT Book_code, Book_name, Book_describe, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
         data = self.cur.fetchall()
+        self.tableWidget_6.setRowCount(0)
         self.tableWidget_6.insertRow(0)
-        
+
         for row, form in enumerate(data):
             for column, item in enumerate(form):
-                self.tableWidget_6.setItem(row, column, QTableWidgetItem(str(item)))
+                self.tableWidget_6.setItem(
+                    row, column, QTableWidgetItem(str(item)))
                 column += 1
-                
+
             Row_position = self.tableWidget_6.rowCount()
             self.tableWidget_6.insertRow(Row_position)
         self.db.close()
-
 
     def Add_New_Book(self):
         self.db = pymysql.connect(
@@ -130,9 +155,9 @@ class MainApp(QMainWindow, ui):
         Book_name = self.lineEdit_3.text()
         Book_describe = self.textEdit.toPlainText()
         Book_code = self.lineEdit_4.text()
-        Book_category = self.comboBox_3.currentIndex()
-        Book_author = self.comboBox_4.currentIndex()
-        Book_publisher = self.comboBox_5.currentIndex()
+        Book_category = self.comboBox_3.currentText()
+        Book_author = self.comboBox_4.currentText()
+        Book_publisher = self.comboBox_5.currentText()
         Book_price = self.lineEdit_5.text()
 
         self.cur.execute('''
@@ -150,6 +175,7 @@ class MainApp(QMainWindow, ui):
         self.comboBox_4.setCurrentIndex(0)
         self.comboBox_5.setCurrentIndex(0)
         self.lineEdit_5.setText('')
+        self.Show_Books()
 
     def Search_Books(self):
         self.db = pymysql.connect(
@@ -166,9 +192,9 @@ class MainApp(QMainWindow, ui):
         self.lineEdit_6.setText(data[1])
         self.textEdit_2.setPlainText(data[2])
         self.lineEdit_9.setText(data[3])
-        self.comboBox_6.setCurrentIndex(data[4])
-        self.comboBox_7.setCurrentIndex(data[5])
-        self.comboBox_8.setCurrentIndex(data[6])
+        self.comboBox_6.setCurrentText(data[4])
+        self.comboBox_7.setCurrentText(data[5])
+        self.comboBox_8.setCurrentText(data[6])
         self.lineEdit_8.setText(str(data[7]))
 
     def Edit_Book(self):
@@ -179,9 +205,9 @@ class MainApp(QMainWindow, ui):
         Book_name = self.lineEdit_6.text()
         Book_describe = self.textEdit_2.toPlainText()
         Book_code = self.lineEdit_9.text()
-        Book_category = self.comboBox_6.currentIndex()
-        Book_author = self.comboBox_7.currentIndex()
-        Book_publisher = self.comboBox_8.currentIndex()
+        Book_category = self.comboBox_6.currentText()
+        Book_author = self.comboBox_7.currentText()
+        Book_publisher = self.comboBox_8.currentText()
         Book_price = self.lineEdit_8.text()
 
         search_book_title = self.lineEdit_7.text()
@@ -192,6 +218,7 @@ class MainApp(QMainWindow, ui):
 
         self.db.commit()
         self.statusBar().showMessage("Book Info Updated")
+        self.Show_Books()
 
     def Remove_Book(self):
         self.db = pymysql.connect(
@@ -207,10 +234,31 @@ class MainApp(QMainWindow, ui):
             self.cur.execute(sql, [(book_title)])
             self.db.commit()
             self.statusBar().showMessage("Book removed")
+        self.Show_Books()
 
 ####### ** ---------------- ** #######
 ####### **   Client Stuff   ** #######
 ####### ** ---------------- ** #######
+    def Show_Clients(self):
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        self.cur.execute(
+            ''' SELECT client_ID, client_email, client_name FROM Clients ''')
+        data = self.cur.fetchall()
+        self.tableWidget_5.setRowCount(0)
+        self.tableWidget_5.insertRow(0)
+
+        for row, form in enumerate(data):
+            for column, item in enumerate(form):
+                self.tableWidget_5.setItem(
+                    row, column, QTableWidgetItem(str(item)))
+                column += 1
+
+            Row_position = self.tableWidget_5.rowCount()
+            self.tableWidget_5.insertRow(Row_position)
+        self.db.close()
 
     def Add_New_Client(self):
         self.db = pymysql.connect(
@@ -227,37 +275,22 @@ class MainApp(QMainWindow, ui):
                          ''', (Client_name, Client_email, Client_ID))
         self.db.commit()
         self.db.close()
+        self.lineEdit_22.setText('')
+        self.lineEdit_24.setText('')
         self.statusBar().showMessage("Client added successfully")
-
-    def Show_Clients(self):
-        self.db = pymysql.connect(
-            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
-        self.cur = self.db.cursor()
-        
-        self.cur.execute(''' SELECT client_name, client_email, client_ID FROM Clients ''')
-        data = self.cur.fetchall()
-        self.tableWidget_5.insertRow(0)
-        
-        for row, form in enumerate(data):
-            for column, item in enumerate(form):
-                self.tableWidget_5.setItem(row, column, QTableWidgetItem(str(item)))
-                column += 1
-                
-            Row_position = self.tableWidget_5.rowCount()
-            self.tableWidget_5.insertRow(Row_position)
-        self.db.close()
+        self.Show_Clients()
 
     def Search_Clients(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
-        
+
         Client_ID = self.lineEdit_26.text()
 
         sql = '''SELECT * FROM Clients WHERE Client_ID = %s '''
         self.cur.execute(sql, [(Client_ID)])
         data = self.cur.fetchone()
-        
+
         self.lineEdit_28.setText(data[1])
         self.lineEdit_27.setText(data[2])
         self.lineEdit_25.setText(data[3])
@@ -272,13 +305,16 @@ class MainApp(QMainWindow, ui):
         Client_email = self.lineEdit_27.text()
         Client_ID = self.lineEdit_26.text()
 
-
         self.cur.execute('''
                          UPDATE Clients SET Client_name = %s,Client_email = %s,Client_ID = %s WHERE Client_ID = %s
                          ''', (Client_name, Client_email, Client_ID, Client_init_ID))
         self.db.commit()
         self.statusBar().showMessage('Client Data Updated')
+        self.lineEdit_25.setText('')
+        self.lineEdit_28.setText('')
+        self.lineEdit_27.setText('')
         self.db.close()
+        self.Show_Clients()
 
     def Delete_Clients(self):
         Client_original_ID = self.lineEdit_25.text()
@@ -296,8 +332,12 @@ class MainApp(QMainWindow, ui):
             self.cur.execute(sql, [(Client_original_ID)])
 
             self.db.commit()
-            self.db.close()
             self.statusBar().showMessage('Client Deleted')
+            self.lineEdit_25.setText('')
+            self.lineEdit_28.setText('')
+            self.lineEdit_27.setText('')
+            self.db.close()
+            self.Show_Clients()
 
 ####### ** ---------------- ** #######
 ####### **   Users Stuff    ** #######
@@ -414,9 +454,7 @@ class MainApp(QMainWindow, ui):
                 Row_Position = self.tableWidget_2.rowCount()
                 self.tableWidget_2.insertRow(Row_Position)
 
-
     ### !! Authors !! ###
-
 
     def Add_Author(self):
         self.db = pymysql.connect(
@@ -457,9 +495,7 @@ class MainApp(QMainWindow, ui):
                 Row_Position = self.tableWidget_3.rowCount()
                 self.tableWidget_3.insertRow(Row_Position)
 
-
     ### !! Publishers !! ###
-
 
     def Add_Publisher(self):
         self.db = pymysql.connect(
@@ -552,7 +588,7 @@ class MainApp(QMainWindow, ui):
 
 
 ####### ** ---------------- ** #######
-####### **    UI Themes     ** #######
+####### ??    UI Themes     ?? #######
 ####### ** ---------------- ** #######
 
     def Black_theme(self):
