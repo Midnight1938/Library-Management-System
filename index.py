@@ -8,21 +8,22 @@ import pymysql
 pymysql.install_as_MySQLdb()
 
 ui, _ = loadUiType('Library.ui')
-login,_ = loadUiType('login.ui')
+login,_ = loadUiType('Login.ui')
 
 class Login(QWidget,login):
     def __init__(self):
         QWidget.__init__(self)
         self.setupUi(self)
-        self.pushButton.clicked.connect(self.Handle_Login)
+        self.pushButton.clicked.connect(self.Loginer)
 
-    def Handle_Login(self):
+    def Loginer(self):
+        Username = self.lineEdit.text()
+        Password = self.lineEdit_2.text()
+
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
         self.cur = self.db.cursor()
 
-        Username = self.lineEdit_13.text()
-        Password = self.lineEdit_14.text()
 
         sql = ''' SELECT * FROM Users'''
 
@@ -30,13 +31,13 @@ class Login(QWidget,login):
         Data = self.cur.fetchall()
         for row in Data:
             if Username == row[1] and Password == row[3]:
-                print('user matched')
+                self.label.setText("Logging In")
                 self.window2 = MainApp()
                 self.close()
                 self.window2.show()
 
             else:
-                self.label.setText('Make sure to enter the correct username and password')
+                self.label.setText("Username or Password is incorrect")
                 
 
 class MainApp(QMainWindow, ui):
@@ -677,7 +678,7 @@ class MainApp(QMainWindow, ui):
 
 def main():
     app = QApplication(sys.argv)
-    window = MainApp()
+    window = Login()
     window.show()
     app.exec_()
 
