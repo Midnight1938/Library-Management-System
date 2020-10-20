@@ -111,14 +111,16 @@ class MainApp(QMainWindow, ui):
         self.cur = self.db.cursor()
 
         Book_title = self.lineEdit.text()
-        Type = self.comboBox.setCurrentText()
-        Duration = self.comboBox_2.setCurrentIndex() + 1
-        Date = str(datetime.date.today())
+        Client = self.lineEdit_29.text()
+        Type = self.comboBox.currentText()
+        Duration = self.comboBox_2.currentIndex() + 1
+        Cur_Date = datetime.date.today()
+        To_date = Cur_Date + datetime.timedelta(days=Duration) 
 
         self.cur.execute('''
-                         INSERT INTO Day-To-Day_Tasks(Book_name, Type, Days, Date)
-                         VALUES (%s,%s,%s,%s)
-                         ''', (Book_title, Type, Duration, Date))
+                         INSERT INTO Day-To-Day_Tasks (Book_name, Client, Type, Days, Date, To_date )
+                         VALUES (%s, %s, %s, %s, %s, %s)
+                         ''', (Book_title, Client, Type, Duration, Cur_Date, To_date))
         self.db.commit()
         self.statusBar.showMessage("Book Logged Sucessfully")
 
