@@ -42,6 +42,9 @@
    <property name="text">
     <string>Login</string>
    </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
@@ -96,9 +99,15 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
+<<<<<<< HEAD
+     <x>160</x>
+     <y>150</y>
+     <width>301</width>
+=======
      <x>90</x>
      <y>150</y>
      <width>411</width>
+>>>>>>> 7d40c239a94ae117ea5a7dc0933f041708bde5cd
      <height>31</height>
     </rect>
    </property>
