@@ -39,8 +39,6 @@ class Login(QWidget,login):
                 self.label.setText('Make sure to enter the correct username and password')
                 
 
-
-
 class MainApp(QMainWindow, ui):
     def __init__(self):
         QMainWindow.__init__(self)
