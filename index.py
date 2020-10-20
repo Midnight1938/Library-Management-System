@@ -22,6 +22,9 @@ class Login(QWidget, login):
         QWidget.__init__(self)
         self.setupUi(self)
         self.pushButton.clicked.connect(self.Loginer)
+        style = open('Themes/Black.css', 'r')
+        style = style.read()
+        self.setStyleSheet(style)
 
     def Loginer(self):
         Username = self.lineEdit.text()
@@ -37,7 +40,6 @@ class Login(QWidget, login):
         Data = self.cur.fetchall()
         for row in Data:
             if Username == row[1] and Password == row[3]:
-                self.statusBar().showMessage("Logging In")
                 self.window2 = MainApp()
                 self.close()
                 self.window2.show()
@@ -54,6 +56,9 @@ class MainApp(QMainWindow, ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
+        style = open('Themes/Black.css', 'r')
+        style = style.read()
+        self.setStyleSheet(style)
         self.Handle_UI_Changes()
         self.Handle_Buttons()
     ### Show things ###
@@ -76,7 +81,7 @@ class MainApp(QMainWindow, ui):
         self.tabWidget.tabBar().setVisible(False)
 
     def Handle_Buttons(self):
-    ## ** For Themes ** ##
+        ## ** For Themes ** ##
         self.pushButton_5.clicked.connect(self.Show_Theme)
         self.pushButton_21.clicked.connect(self.Hiding_Theme)
     ## ** For Navigation ** ##
@@ -117,7 +122,7 @@ class MainApp(QMainWindow, ui):
         self.pushButton_29.clicked.connect(self.Export_processes)
         self.pushButton_27.clicked.connect(self.Export_Book_Info)
         self.pushButton_28.clicked.connect(self.Export_Clients)
-        
+
 ####### ** ---------------- ** #######
 ####### ** Top_Bar Tweaking ** #######
 ####### ** ---------------- ** #######
@@ -200,7 +205,6 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 ####### **   Books Stuff    ** #######
 ####### ** ---------------- ** #######
-
 
     def Show_Books(self):
         self.db = pymysql.connect(
@@ -618,7 +622,6 @@ class MainApp(QMainWindow, ui):
 ####### ** Book UI Settings ** #######
 ####### ** ---------------- ** #######
 
-
     def Show_Category_CBB(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -669,7 +672,6 @@ class MainApp(QMainWindow, ui):
 ####### ??    UI Themes     ?? #######
 ####### ** ---------------- ** #######
 
-
     def Black_theme(self):
         style = open('Themes/Black.css', 'r')
         style = style.read()
@@ -702,14 +704,26 @@ class MainApp(QMainWindow, ui):
                          SELECT Book_name, Client, Type, Duration, To_date from Daily_Tasks
                          ''')
         data = self.cur.fetchall()
-        XlSheet = Workbook('Daily_Operation.xlsx')
-        sheet1 = XlSheet.add_worksheet()
-        
-        sheet1.write(0,0, 'Book Name')
-        sheet1.write(0,0, 'Client Name')
-        sheet1.write(0,0, 'Book Name')
-        sheet1.write(0,0, 'Book Name')
-    
+        wb = Workbook('Exports/Daily_Operation.xlsx')
+        sheet1 = wb.add_worksheet()
+
+        sheet1.write(0, 0, 'Book Name')
+        sheet1.write(0, 1, 'Client Name')
+        sheet1.write(0, 2, 'Type')
+        sheet1.write(0, 3, 'From - Date')
+        sheet1.write(0, 4, 'To - Date')
+
+        row_number = 1
+        for row in data:
+            column_number = 0
+            for item in row:
+                sheet1.write(row_number, column_number, str(item))
+                column_number += 1
+            row_number += 1
+
+        wb.close()
+        self.statusBar().showMessage("Data exported to Exports Folder")
+
     def Export_Book_Info(self):
         self.db = pymysql.connect(
             host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
@@ -718,9 +732,58 @@ class MainApp(QMainWindow, ui):
         self.cur.execute(
             ''' SELECT Book_code, Book_name, Book_describe, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
         data = self.cur.fetchall()
-    
+        
+        wb = Workbook('Exports/Book_List.xlsx')
+        sheet1 = wb.add_worksheet()
+
+        sheet1.write(0, 0, 'Book Code')
+        sheet1.write(0, 1, 'Book Name')
+        sheet1.write(0, 2, 'Descrip')
+        sheet1.write(0, 3, 'Category')
+        sheet1.write(0, 4, 'Author')
+        sheet1.write(0, 5, 'Publisher')
+        sheet1.write(0, 6, 'Price')
+
+        row_number = 1
+        for row in data:
+            column_number = 0
+            for item in row:
+                sheet1.write(row_number, column_number, str(item))
+                column_number += 1
+            row_number += 1
+
+        wb.close()
+        self.statusBar().showMessage("Data exported to Exports Folder")
+
+        
     def Export_Clients(self):
-        pass
+        self.db = pymysql.connect(
+            host='remotemysql.com', user='sK2s1bWndE', password='ocnTQrgalf', db='sK2s1bWndE')
+        self.cur = self.db.cursor()
+
+        self.cur.execute(
+            ''' SELECT client_ID, client_email, client_name FROM Clients ''')
+        data = self.cur.fetchall()
+        
+        wb = Workbook('Exports/Book_List.xlsx')
+        sheet1 = wb.add_worksheet()
+
+        sheet1.write(0, 0, 'Client ID')
+        sheet1.write(0, 1, 'Email')
+        sheet1.write(0, 2, 'Name')
+
+        row_number = 1
+        for row in data:
+            column_number = 0
+            for item in row:
+                sheet1.write(row_number, column_number, str(item))
+                column_number += 1
+            row_number += 1
+
+        wb.close()
+        self.statusBar().showMessage("Data exported to Exports Folder")
+
+        
 
 ####### !! ---------------- !! #######
 ####### **  Program Runner  ** #######
