@@ -12,6 +12,8 @@ from xlsxwriter import *
 ui, _ = loadUiType('Library.ui')
 login, _ = loadUiType('LogWindow.ui')
 
+### TODO: Fix User editor ###
+
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
 ####### !! ---------------- !! #######
