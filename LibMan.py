@@ -9,8 +9,8 @@ from PyQt5.uic import loadUiType
 from xlrd import *
 from xlsxwriter import *
 
-ui, _ = loadUiType('Library.ui')
-login, _ = loadUiType('LogWindow.ui')
+ui, _ = loadUiType('Runners/Library.ui')
+login, _ = loadUiType('Runners/LogWindow.ui')
 
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
@@ -22,7 +22,7 @@ class Login(QWidget, login):
         QWidget.__init__(self)
         self.setupUi(self)
         self.pushButton.clicked.connect(self.Loginer)
-        style = open('Themes/Black.css', 'r')
+        style = open('Runners/Themes/Black.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
 
@@ -56,7 +56,7 @@ class MainApp(QMainWindow, ui):
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupUi(self)
-        style = open('Themes/Black.css', 'r')
+        style = open('Runners/Themes/Black.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
         self.Handle_UI_Changes()
@@ -673,22 +673,22 @@ class MainApp(QMainWindow, ui):
 ####### ** ---------------- ** #######
 
     def Black_theme(self):
-        style = open('Themes/Black.css', 'r')
+        style = open('Runners/Themes/Black.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
 
     def BreezeDrk_theme(self):
-        style = open('Themes/Breeze_dark_style.css', 'r')
+        style = open('Runners/Themes/Breeze_dark_style.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
 
     def DrkOrange_theme(self):
-        style = open('Themes/DrkOrange.css', 'r')
+        style = open('Runners/Themes/DrkOrange.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
 
     def Navy_theme(self):
-        style = open('Themes/Navy.css', 'r')
+        style = open('Runners/Themes/Navy.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
 
@@ -723,6 +723,7 @@ class MainApp(QMainWindow, ui):
 
         wb.close()
         self.statusBar().showMessage("Data exported to Exports Folder")
+
 
     def Export_Book_Info(self):
         self.db = pymysql.connect(
