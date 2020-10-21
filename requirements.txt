@@ -1,6 +1,7 @@
 wheel
 pyqt5
 pymysql
-xlrdxlsxwriter
+xlrd
+xlsxwriter
 datetime
 sys
