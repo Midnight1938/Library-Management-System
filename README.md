@@ -13,6 +13,7 @@
 
 > Install Python, Duh
 <br>
+
 > QtDesigner (For the .ui files)
 <br>
 Install on Windows:
