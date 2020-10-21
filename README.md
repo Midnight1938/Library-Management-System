@@ -12,10 +12,11 @@
 ## Requirements
 
 > Install Python, Duh
-</br>
+<br>
 > QtDesigner (For the .ui files)
+<br>
 [Install on Windows](https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe)
-</br>
+<br>
 [Install on Mac](https://build-system.fman.io/static/public/files/Qt%20Designer.dmg)
 <br>
 
