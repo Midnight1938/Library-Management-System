@@ -11,7 +11,7 @@
 
 ## Requirements
 
-> Install Python, Duh
+> Install Python (Duh)
 <br>
 
 > QtDesigner (For the .ui files)
@@ -29,7 +29,7 @@ https://build-system.fman.io/static/public/files/Qt%20Designer.dmg
 <br>
 ```sudo apt-get install qttools5-dev```
 
-### To install python dependencies run
+### To install python dependencies, open terminal in this folder and run
 
 ```pip install -r requirements.txt```
 
