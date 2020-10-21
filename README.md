@@ -4,6 +4,7 @@
 - Built on Python3
 
 [Management structure](https://github.com/Midnight1938/Library-Management/blob/master/MgmntStr.md)
+</br>
 [Building your own Library: (read)](https://github.com/Midnight1938/Library-Management/blob/master/BuildSQL.md)
 
 ![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
