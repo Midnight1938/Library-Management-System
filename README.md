@@ -20,9 +20,9 @@
 <br>
 
 **Install on Linux (Debian)**
-
 <br>
 ```sudo apt-get install qttools5-dev-tools```
+<br>
 ```sudo apt-get install qttools5-dev```
 
 ### To install python dependencies run
