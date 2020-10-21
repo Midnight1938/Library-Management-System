@@ -15,7 +15,7 @@ So to make your own DB:
 ![What youll know](https://i.imgur.com/av5qnBS.png)
 ![What to do](https://i.imgur.com/MQ47AMw.png)
 - [ ] Replace the info of the db in the python file.
-- Import the sql file here to the Cloud (If you cant figure that out by looking at the remotemysql.com database page.... Youre hopless)
+- [ ] Import the sql file here to the Cloud (If you cant figure that out by looking at the remotemysql.com database page.... Youre hopless)
 
 ##### Incase something goes wrong in exporting to cloud:
 
