@@ -32,3 +32,9 @@ https://build-system.fman.io/static/public/files/Qt%20Designer.dmg
 ### To install python dependencies run
 
 ```pip install -r requirements.txt```
+
+#### How to put up your own icons:
+- Keep the same name (for ease)
+- In the folder, open terminal and run:
+<br>
+```pyrcc5 icons.qrc -o icons_rc.py```
