@@ -15,9 +15,11 @@
 <br>
 > QtDesigner (For the .ui files)
 <br>
-[Install on Windows](https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe)
+Install on Windows:
+https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe
 <br>
-[Install on Mac](https://build-system.fman.io/static/public/files/Qt%20Designer.dmg)
+Install on Mac:
+https://build-system.fman.io/static/public/files/Qt%20Designer.dmg
 <br>
 
 **Install on Linux (Debian)**
