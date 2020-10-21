@@ -17,9 +17,11 @@
 [Install on Windows](https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe)
 </br>
 [Install on Mac](https://build-system.fman.io/static/public/files/Qt%20Designer.dmg)
-</br>
+<br>
+
 **Install on Linux (Debian)**
-</br>
+
+<br>
 ```sudo apt-get install qttools5-dev-tools```
 ```sudo apt-get install qttools5-dev```
 
