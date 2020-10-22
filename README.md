@@ -17,22 +17,22 @@
 > ***QtDesigner (If you want to edit the .ui files ie the actual LOOK or LAYOUT)***
 <br>
 
-**Install on Windows**
-<br>
-https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe
-<br>
+>> **Install on Windows**
+>> <br>
+>> https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe
+>> <br>
 
-**Install on Mac**
-<br>
-https://build-system.fman.io/static/public/files/Qt%20Designer.dmg
-<br>
+>> **Install on Mac**
+>> <br>
+>> https://build-system.fman.io/static/public/files/Qt%20Designer.dmg
+>> <br>
+ 
+>> **Install on Linux (Debian)**
+>> <br>
 
-**Install on Linux (Debian)**
-<br>
-
-```sudo apt-get install qttools5-dev-tools```
-<br>
-```sudo apt-get install qttools5-dev```
+>> ```sudo apt-get install qttools5-dev-tools```
+>> <br>
+>> ```sudo apt-get install qttools5-dev```
 
 ### To install python dependencies, open terminal in this folder and run
 
