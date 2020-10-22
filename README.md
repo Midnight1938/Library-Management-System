@@ -11,15 +11,15 @@
 
 ## Requirements
 
-> Install Python3
+> ***Install Python3***
 <br>
 
-> QtDesigner (If you want to edit the .ui files ie the actual LOOK or LAYOUT)
+> ***QtDesigner (If you want to edit the .ui files ie the actual LOOK or LAYOUT)***
 <br>
-Install on Windows:
+**Install on Windows:**
 https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe
 <br>
-Install on Mac:
+**Install on Mac:**
 https://build-system.fman.io/static/public/files/Qt%20Designer.dmg
 <br>
 
