@@ -140,18 +140,15 @@ class MainApp(QMainWindow, ui):
         self.tabWidget.setCurrentIndex(0)
 
     def Open_Books(self):
-        pass
         self.tabWidget.setCurrentIndex(1)
 
     def Open_Users(self):
         self.tabWidget.setCurrentIndex(3)
 
     def Open_Clients(self):
-        pass
         self.tabWidget.setCurrentIndex(2)
 
     def Open_Tweaks(self):
-        pass
         self.tabWidget.setCurrentIndex(4)
 
 ####### ** ---------------- ** #######
