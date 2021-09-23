@@ -4,4 +4,3 @@ pymysql
 xlrd
 xlsxwriter
 datetime
-sys

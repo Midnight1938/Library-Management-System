@@ -1,0 +1,148 @@
+% Created 2021-09-23 Thu 10:49
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Saksham Sharma}
+\date{\textit{<2021-09-22 Wed>}}
+\title{Computer Practical Project 2021}
+\hypersetup{
+ pdfauthor={Saksham Sharma},
+ pdftitle={Computer Practical Project 2021},
+ pdfkeywords={},
+ pdfsubject={Project documentation for Computer},
+ pdfcreator={Emacs 27.2 (Org mode 9.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\textbf{\textbf{Name:}} Library Management system
+\textbf{\textbf{Version:}} 1.0
+
+\section{Overview}
+\label{sec:org83c6530}
+Following is a document listing the features of a Library Management System that was built after being frustrated by the manual handling of data at the local library. The features include a system to manage a database of books, Admins and Clients, and the ability to modify, sort and export relevant data.
+The document also includes basic instructions if one wants to modify the program
+
+\section{Objective}
+\label{sec:orgd7d8056}
+\begin{itemize}
+\item Built with \href{https://www.python.org/}{Python} and \href{https://www.qt.io/}{QT Framework}
+\item MySQL Database Hosted on \href{//azure.microsoft.com}{Azure}
+\end{itemize}
+
+\section{Features}
+\label{sec:org6a543fb}
+\subsection{Main system}
+\label{sec:orgf987840}
+\begin{itemize}
+\item Login Page
+\item Users
+\item Add Users (Signup)
+\item Add a Book
+\item Edit Book Info
+\item Delete Book
+\item Categories
+\item Settings [Categs, Author, Publisher]
+\item Day To Day Transaction Log
+\item Reports [Excel Files]
+\end{itemize}
+
+\subsection{Book}
+\label{sec:orge1f6131}
+\begin{itemize}
+\item Title
+\item ISBN Code
+\item Description
+\item Category
+\item Price
+\item Author
+\item Publisher
+\end{itemize}
+
+\subsection{Admin}
+\label{sec:orgae946ac}
+\begin{itemize}
+\item User Name
+\item Password
+\item Email Id
+\end{itemize}
+
+\subsection{Client / Students}
+\label{sec:org1ea0c7f}
+\begin{itemize}
+\item Username
+\item Student ID
+\item Email ID
+\end{itemize}
+
+\subsection{Day-to-Day}
+\label{sec:org8918086}
+\begin{itemize}
+\item Book name
+\item Type (Issue / Return)
+\item Duration (weeks)
+\end{itemize}
+
+\subsection{Category, Publisher, Author}
+\label{sec:orga00290e}
+\begin{itemize}
+\item Names
+\item List
+\end{itemize}
+
+\section{Future Prospects}
+\label{sec:org5002023}
+\begin{itemize}
+\item WebApp
+\item Integrate barcode scanning
+\item Ability to select local or cloud database
+\end{itemize}
+
+\section{Resources}
+\label{sec:orgf0c1647}
+\subsection{Requirements}
+\label{sec:orgbeb5504}
+
+\subsubsection{QtDesigner}
+\label{sec:orgec9a439}
+If you want to edit the .ui files ie the actual LOOK or LAYOUT
+\begin{itemize}
+\item \href{https://build-system.fman.io/static/public/files/Qt\%20Designer\%20Setup.exe}{\textbf{\textbf{Install on Windows}}}
+\item \href{https://build-system.fman.io/static/public/files/Qt\%20Designer.dmg}{\textbf{\textbf{Install on Mac}}}
+\item \textbf{\textbf{Installing on Linux (Debian and Fedora)}}
+\end{itemize}
+\begin{verbatim}
+sudo apt-get install qttools5-dev-tools qttools5-dev
+
+sudo dnf install qttools5-dev-tools qttools5-dev
+\end{verbatim}
+
+\subsubsection{Python Dependencies}
+\label{sec:org00694f9}
+To install python dependencies use the \texttt{requirements.txt} file with python pip
+
+\subsection{Icon Manipulation:}
+\label{sec:orgce07cb3}
+Follow these steps to change hte programs icons
+\begin{enumerate}
+\item Keep the same name (for ease)
+\item In the folder, open terminal and run the following code
+\begin{verbatim}
+   pyrcc5 icons.qrc -o icons_rc.py
+\end{verbatim}
+\end{enumerate}
+\end{document}

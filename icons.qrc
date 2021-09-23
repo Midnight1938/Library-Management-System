@@ -1,11 +1,11 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource>
-        <file>Icons/books.png</file>
-        <file>Icons/settings.png</file>
-        <file>Icons/theme.png</file>
-        <file>Icons/to-do-list.png</file>
-        <file>Icons/user-data.png</file>
-        <file>Icons/student.png</file>
+        <file>Runners/Icons/books.png</file>
+        <file>Runners/Icons/settings.png</file>
+        <file>Runners/Icons/theme.png</file>
+        <file>Runners/Icons/to-do-list.png</file>
+        <file>Runners/Icons/user-data.png</file>
+        <file>Runners/Icons/student.png</file>
     </qresource>
 </RCC>
