@@ -12,7 +12,7 @@ from xlsxwriter import *
 ui, _ = loadUiType('Runners/Library.ui')
 login, _ = loadUiType('Runners/LogWindow.ui')
 
-mainHost, mainUser, passcode, dataBase = 'remotemysql.com', 'sK2s1bWndE', 'ocnTQrgalf', 'sK2s1bWndE'
+mainHost, mainUser, passcode, dataBase = 'mysqllibrary.mysql.database.azure.com', 'class12server@mysqllibrary', 'D3DiyXyXgruHrvq', 'library_system'
 
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
@@ -434,7 +434,7 @@ class MainApp(QMainWindow, ui):
 
         if Password == Re_Pass:
             self.cur.execute('''
-                             INSERT INTO Users(user_name, user_email, user_password)
+                             INSERT INTO Users(user_name, user_email, user_pwd)
                              VALUES (%s,%s,%s)
                              ''', (Username, Email, Password))
 
@@ -677,7 +677,7 @@ class MainApp(QMainWindow, ui):
         self.setStyleSheet(style)
 
     def BreezeDrk_theme(self):
-        style = open('Runners/Themes/Breeze_dark_style.css', 'r')
+        style = open('Runners/Themes/Breeze_dark_Style.css', 'r')
         style = style.read()
         self.setStyleSheet(style)
 
@@ -793,6 +793,7 @@ class MainApp(QMainWindow, ui):
 def main():
     app = QApplication(sys.argv)
     window = Login()
+    #window = MainApp()
     window.show()
     app.exec_()
 
