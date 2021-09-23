@@ -4,10 +4,11 @@
 #+SETUPFILE: export/setup/theme-darksun-local.setup
 #+date: <2021-09-22 Wed>
 
-[[https://midnight1938.github.io/Library-Management-System/][**Visit website**]]
-**Name:** Library Management system
+[[https://midnight1938.github.io/Library-Management-System/][Visit website]]
 
-**Version:** 1.0
+*Name:* Library Management system
+
+*Version:* 1.0
 
 ** Overview
 Following is a document listing the features of a Library Management System that was built after being frustrated by the manual handling of data at the local library. The features include a system to manage a database of books, Admins and Clients, and the ability to modify, sort and export relevant data.
