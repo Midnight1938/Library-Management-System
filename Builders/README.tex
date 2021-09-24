@@ -1,6 +1,40 @@
-% Created 2021-09-23 Thu 10:49
-% Intended LaTeX compiler: pdflatex
-\documentclass[11pt]{article}
+% Copyright 2020 by Junwei Wang <i.junwei.wang@gmail.com>
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3c
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+
+%\documentclass[compress]{beamer}
+\documentclass[landscape,a4paper,]{beamer}
+
+\newcommand\myheading[1]{%
+  \par\bigskip
+  {\Large\bfseries#1}\par\smallskip}
+
+\newcommand\mysubheading[1]{%
+  \par\bigskip
+  {\Medium\bfseries#1}\par\smallskip}
+
+
+\useoutertheme{infolines}
+\graphicspath{{Images/}}
+
+\usepackage[english]{babel}
+\usepackage{metalogo}
+\usepackage{listings}
+\usepackage{fontspec}
+\usepackage{tikz}
+
+\usepackage{wrapfig}
+\usetheme{Nord}
+% \usetheme[style=light]{Nord}
+
+\setmainfont{Yanone Kaffeesatz}
+\setsansfont{Andika New Basic}
+\setmonofont{DejaVu Sans Mono}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
@@ -15,39 +49,60 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \author{Saksham Sharma}
-\date{\textit{<2021-09-22 Wed>}}
+\date{\today}
 \title{Computer Practical Project 2021}
 \hypersetup{
  pdfauthor={Saksham Sharma},
  pdftitle={Computer Practical Project 2021},
  pdfkeywords={},
- pdfsubject={Project documentation for Computer},
+ pdfsubject={},
  pdfcreator={Emacs 27.2 (Org mode 9.5)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 \tableofcontents
-
-\textbf{\textbf{Name:}} Library Management system
-\textbf{\textbf{Version:}} 1.0
+\newpage
 
 \section{Overview}
-\label{sec:org83c6530}
+\label{sec:orga8bb4a8}
+\myheading{\insertsectionhead}
+
+\begin{wrapfigure}{r}{0.25\textwidth}
+    \includegraphics[scale=0.08]{Images/library.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
+
 Following is a document listing the features of a Library Management System that was built after being frustrated by the manual handling of data at the local library. The features include a system to manage a database of books, Admins and Clients, and the ability to modify, sort and export relevant data.
 The document also includes basic instructions if one wants to modify the program
 
 \section{Objective}
-\label{sec:orgd7d8056}
+\label{sec:orgbc0d5a6}
+\myheading{\insertsectionhead}
+\begin{wrapfigure}{r}{0.40\textwidth}
+    \includegraphics[scale=0.12]{Login_Page.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
+To Build a Library management system that is easy to use and provides a hassle free experience
 \begin{itemize}
 \item Built with \href{https://www.python.org/}{Python} and \href{https://www.qt.io/}{QT Framework}
 \item MySQL Database Hosted on \href{//azure.microsoft.com}{Azure}
 \end{itemize}
 
+\newpage
+
 \section{Features}
-\label{sec:org6a543fb}
+\label{sec:org94e4192}
+\myheading{\insertsectionhead}
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+    \includegraphics[scale=0.1]{Main.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
+
 \subsection{Main system}
-\label{sec:orgf987840}
+\label{sec:orgbd99333}
+\mysubheading{\insertsubsectionhead}
 \begin{itemize}
 \item Login Page
 \item Users
@@ -61,8 +116,17 @@ The document also includes basic instructions if one wants to modify the program
 \item Reports [Excel Files]
 \end{itemize}
 
+\newpage
+
+\begin{wrapfigure}{r}{0.50\textwidth}
+    \includegraphics[scale=0.1]{Books.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
 \subsection{Book}
-\label{sec:orge1f6131}
+\label{sec:org56fa84e}
+\mysubheading{\insertsubsectionhead}
+
+
 \begin{itemize}
 \item Title
 \item ISBN Code
@@ -73,24 +137,47 @@ The document also includes basic instructions if one wants to modify the program
 \item Publisher
 \end{itemize}
 
+\begin{wrapfigure}{r}{0.50\textwidth}
+    \includegraphics[scale=0.11]{Users.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
+
 \subsection{Admin}
-\label{sec:orgae946ac}
+\label{sec:org8df7786}
+\mysubheading{\insertsubsectionhead}
+
+
 \begin{itemize}
 \item User Name
 \item Password
 \item Email Id
 \end{itemize}
 
+\begin{wrapfigure}{r}{0.50\textwidth}
+    \includegraphics[scale=0.11]{Client.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
+
 \subsection{Client / Students}
-\label{sec:org1ea0c7f}
+\label{sec:org8ca5e45}
+\mysubheading{\insertsubsectionhead}
+
+
 \begin{itemize}
 \item Username
 \item Student ID
 \item Email ID
 \end{itemize}
 
+\begin{wrapfigure}{r}{0.50\textwidth}
+    \includegraphics[scale=0.11]{Theme.png}
+    \label{fig:wrapfig}
+\end{wrapfigure}
+
 \subsection{Day-to-Day}
-\label{sec:org8918086}
+\label{sec:org1c6a657}
+\mysubheading{\insertsubsectionhead}
+
 \begin{itemize}
 \item Book name
 \item Type (Issue / Return)
@@ -98,51 +185,60 @@ The document also includes basic instructions if one wants to modify the program
 \end{itemize}
 
 \subsection{Category, Publisher, Author}
-\label{sec:orga00290e}
+\label{sec:org2ea43dc}
+\mysubheading{\insertsubsectionhead}
+
+
 \begin{itemize}
 \item Names
 \item List
 \end{itemize}
 
 \section{Future Prospects}
-\label{sec:org5002023}
+\label{sec:org4d396ab}
+\myheading{\insertsectionhead}
 \begin{itemize}
 \item WebApp
 \item Integrate barcode scanning
 \item Ability to select local or cloud database
 \end{itemize}
 
+\newpage
 \section{Resources}
-\label{sec:orgf0c1647}
+\label{sec:org7bd709f}
+\myheading{\insertsectionhead}
+
 \subsection{Requirements}
-\label{sec:orgbeb5504}
+\label{sec:org0ceccbb}
+\mysubheading{\insertsubsectionhead}
 
 \subsubsection{QtDesigner}
-\label{sec:orgec9a439}
+\label{sec:org7bc29de}
 If you want to edit the .ui files ie the actual LOOK or LAYOUT
 \begin{itemize}
-\item \href{https://build-system.fman.io/static/public/files/Qt\%20Designer\%20Setup.exe}{\textbf{\textbf{Install on Windows}}}
-\item \href{https://build-system.fman.io/static/public/files/Qt\%20Designer.dmg}{\textbf{\textbf{Install on Mac}}}
-\item \textbf{\textbf{Installing on Linux (Debian and Fedora)}}
-\end{itemize}
-\begin{verbatim}
+\item \href{https://build-system.fman.io/static/public/files/Qt\%20Designer\%20Setup.exe}{\textbf{\textbf{Install on Windows (Link)}}}
+\item \href{https://build-system.fman.io/static/public/files/Qt\%20Designer.dmg}{\textbf{\textbf{Install on Mac (Link)}}}
+\begin{block}{Installing on Linux (Debian and Fedora)}
+%\item \textbf{\textbf{Installing on Linux (Debian and Fedora)}}
 sudo apt-get install qttools5-dev-tools qttools5-dev
 
 sudo dnf install qttools5-dev-tools qttools5-dev
-\end{verbatim}
 
+\end{block}
+\end{itemize}
 \subsubsection{Python Dependencies}
-\label{sec:org00694f9}
+\label{sec:org03faeef}
 To install python dependencies use the \texttt{requirements.txt} file with python pip
 
 \subsection{Icon Manipulation:}
-\label{sec:orgce07cb3}
+\label{sec:orgd388344}
+\mysubheading{\insertsubsectionhead}
+
 Follow these steps to change hte programs icons
 \begin{enumerate}
 \item Keep the same name (for ease)
-\item In the folder, open terminal and run the following code
-\begin{verbatim}
-   pyrcc5 icons.qrc -o icons_rc.py
-\end{verbatim}
+\begin{exampleblock}{In the folder, open terminal and run the following code}
+   \text{pyrcc5 icons.qrc -o icons\_rc.py}
+\end{exampleblock}
 \end{enumerate}
 \end{document}

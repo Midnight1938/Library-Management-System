@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-23 Thu 11:21 -->
+<!-- 2021-09-24 Fri 17:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Computer Practical Project 2021</title>
@@ -204,7 +204,7 @@
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
 <script type="text/javascript" src="js/darksun.js"></script>
 <script type="text/javascript" src="js/hideshow.js"></script>
-<script type="text/javascript" src="lib/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript">
 // @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
 <!--/*--><![CDATA[/*><!--*/
@@ -235,43 +235,51 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc01a66c">1. Overview</a></li>
-<li><a href="#org9d2637f">2. Objective</a></li>
-<li><a href="#org2db1b79">3. Features</a>
+<li><a href="#org31d3312">1. Overview</a></li>
+<li><a href="#org414c38f">2. Objective</a>
 <ul>
-<li><a href="#orgc4d4b94">3.1. Main system</a></li>
-<li><a href="#org9d2bbd8">3.2. Book</a></li>
-<li><a href="#orge9f2d25">3.3. Admin</a></li>
-<li><a href="#org40d0589">3.4. Client / Students</a></li>
-<li><a href="#org23c8ed3">3.5. Day-to-Day</a></li>
-<li><a href="#org86d4435">3.6. Category, Publisher, Author</a></li>
+<li><a href="#org98c8902">2.1. Releases</a></li>
 </ul>
 </li>
-<li><a href="#orga5c556e">4. Future Prospects</a></li>
-<li><a href="#org6aebf82">5. Resources</a>
+<li><a href="#orga5dab5c">3. Features</a>
 <ul>
-<li><a href="#orgb70561f">5.1. Requirements</a>
-<ul>
-<li><a href="#org72fc539">5.1.1. QtDesigner</a></li>
-<li><a href="#orga97a77c">5.1.2. Python Dependencies</a></li>
+<li><a href="#org70ee256">3.1. Main system</a></li>
+<li><a href="#orgfbe5904">3.2. Book</a></li>
+<li><a href="#org03415d5">3.3. Admin</a></li>
+<li><a href="#orgfa2158f">3.4. Client / Students</a></li>
+<li><a href="#org877bebb">3.5. Day-to-Day</a></li>
+<li><a href="#org588ae55">3.6. Category, Publisher, Author</a></li>
 </ul>
 </li>
-<li><a href="#org1136ae0">5.2. Icon Manipulation:</a></li>
+<li><a href="#orgc3015a7">4. Future Prospects</a></li>
+<li><a href="#orgb69dcbb">5. Resources</a>
+<ul>
+<li><a href="#orgcff2ed6">5.1. Requirements</a>
+<ul>
+<li><a href="#orgc73ab11">5.1.1. QtDesigner</a></li>
+<li><a href="#org9778077">5.1.2. Python Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#org02d63a2">5.2. Icon Manipulation:</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <p>
-<b><b>Name:</b></b> Library Management system
+<a href="https://github.com/midnight1938/Library-Management-System/"> <img src="https://img.shields.io/badge/Github-Page-lightgrey"> </a>
 </p>
 
 <p>
-<b><b>Version:</b></b> 1.0
+<b>Name:</b> Library Management system
 </p>
 
-<div id="outline-container-orgc01a66c" class="outline-2">
-<h2 id="orgc01a66c"><span class="section-number-2">1</span> Overview</h2>
+<p>
+<b>Version:</b> 1.0
+</p>
+
+<div id="outline-container-org31d3312" class="outline-2">
+<h2 id="org31d3312"><span class="section-number-2">1</span> Overview</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Following is a document listing the features of a Library Management System that was built after being frustrated by the manual handling of data at the local library. The features include a system to manage a database of books, Admins and Clients, and the ability to modify, sort and export relevant data.
@@ -280,28 +288,50 @@ The document also includes basic instructions if one wants to modify the program
 </div>
 </div>
 
-<div id="outline-container-org9d2637f" class="outline-2">
-<h2 id="org9d2637f"><span class="section-number-2">2</span> Objective</h2>
+<div id="outline-container-org414c38f" class="outline-2">
+<h2 id="org414c38f"><span class="section-number-2">2</span> Objective</h2>
 <div class="outline-text-2" id="text-2">
+<img src="https://i.imgur.com/V5eBpKr.png" align="right", width="40%">
+
 <p>
 To Build a Library management system that is easy to use and provides a hassel free experience
 </p>
 <ul class="org-ul">
-<li>Built with <a href="https://www.python.org/">Python</a> and <a href="https://www.qt.io/">QT Framework</a></li>
-<li>MySQL Database Hosted on <a href="//azure.microsoft.com">Azure</a></li>
+<li>Built with <a href="https://www.python.org/">Python</a> and <a href="https://www.qt.io/">QT Framework</a>
+<ul class="org-ul">
+<li>Python Modules:
+<ul class="org-ul">
+<li>wheel</li>
+<li>pyqt5</li>
+<li>pymysql</li>
+<li>xlrd</li>
+<li>xlsxwriter</li>
+<li>datetime</li>
+</ul></li>
+</ul></li>
+<li>MySQL Database Hosted on <a href="//azure.microsoft.com">Azure</a> with IP Authentication</li>
 </ul>
+</div>
+<div id="outline-container-org98c8902" class="outline-3">
+<h3 id="org98c8902"><span class="section-number-3">2.1</span> Releases</h3>
+<div class="outline-text-3" id="text-2-1">
+<a href="https://github.com/Midnight1938/Library-Management-System/releases"><img src="https://img.shields.io/badge/Pre--Alpha-download-blue"> </a>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org2db1b79" class="outline-2">
-<h2 id="org2db1b79"><span class="section-number-2">3</span> Features</h2>
+<div id="outline-container-orga5dab5c" class="outline-2">
+<h2 id="orga5dab5c"><span class="section-number-2">3</span> Features</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgc4d4b94" class="outline-3">
-<h3 id="orgc4d4b94"><span class="section-number-3">3.1</span> Main system</h3>
+<div id="outline-container-org70ee256" class="outline-3">
+<h3 id="org70ee256"><span class="section-number-3">3.1</span> Main system</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>Login Page</li>
+<img src="https://i.imgur.com/6HYlF3I.png" align="right", width="40%">
+
+
+  <li>Login Page</li>
 <li>Users</li>
 <li>Add Users (Signup)</li>
 <li>Add a Book</li>
@@ -315,10 +345,12 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-org9d2bbd8" class="outline-3">
-<h3 id="org9d2bbd8"><span class="section-number-3">3.2</span> Book</h3>
+<div id="outline-container-orgfbe5904" class="outline-3">
+<h3 id="orgfbe5904"><span class="section-number-3">3.2</span> Book</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
+<img src="https://i.imgur.com/17aM13V.png" align="right", width="40%">
+
 <li>Title</li>
 <li>ISBN Code</li>
 <li>Description</li>
@@ -330,10 +362,12 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-orge9f2d25" class="outline-3">
-<h3 id="orge9f2d25"><span class="section-number-3">3.3</span> Admin</h3>
+<div id="outline-container-org03415d5" class="outline-3">
+<h3 id="org03415d5"><span class="section-number-3">3.3</span> Admin</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
+<img src="https://i.imgur.com/29vYlk4.png" align="right", width="30%">
+
 <li>User Name</li>
 <li>Password</li>
 <li>Email Id</li>
@@ -341,10 +375,12 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-org40d0589" class="outline-3">
-<h3 id="org40d0589"><span class="section-number-3">3.4</span> Client / Students</h3>
+<div id="outline-container-orgfa2158f" class="outline-3">
+<h3 id="orgfa2158f"><span class="section-number-3">3.4</span> Client / Students</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
+<img src="https://i.imgur.com/VXQoei0.png" align="right", width="30%">
+
 <li>Username</li>
 <li>Student ID</li>
 <li>Email ID</li>
@@ -352,10 +388,12 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-org23c8ed3" class="outline-3">
-<h3 id="org23c8ed3"><span class="section-number-3">3.5</span> Day-to-Day</h3>
+<div id="outline-container-org877bebb" class="outline-3">
+<h3 id="org877bebb"><span class="section-number-3">3.5</span> Day-to-Day</h3>
 <div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
+<img src="https://i.imgur.com/R2CtnBe.png" align="right", width="30%">
+
 <li>Book name</li>
 <li>Type (Issue / Return)</li>
 <li>Duration (weeks)</li>
@@ -363,10 +401,12 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-org86d4435" class="outline-3">
-<h3 id="org86d4435"><span class="section-number-3">3.6</span> Category, Publisher, Author</h3>
+<div id="outline-container-org588ae55" class="outline-3">
+<h3 id="org588ae55"><span class="section-number-3">3.6</span> Category, Publisher, Author</h3>
 <div class="outline-text-3" id="text-3-6">
 <ul class="org-ul">
+<img src="https://i.imgur.com/uf5VMb5.png" align="right", width="30%">
+
 <li>Names</li>
 <li>List</li>
 </ul>
@@ -374,8 +414,8 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-orga5c556e" class="outline-2">
-<h2 id="orga5c556e"><span class="section-number-2">4</span> Future Prospects</h2>
+<div id="outline-container-orgc3015a7" class="outline-2">
+<h2 id="orgc3015a7"><span class="section-number-2">4</span> Future Prospects</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>WebApp</li>
@@ -385,16 +425,16 @@ To Build a Library management system that is easy to use and provides a hassel f
 </div>
 </div>
 
-<div id="outline-container-org6aebf82" class="outline-2">
-<h2 id="org6aebf82"><span class="section-number-2">5</span> Resources</h2>
+<div id="outline-container-orgb69dcbb" class="outline-2">
+<h2 id="orgb69dcbb"><span class="section-number-2">5</span> Resources</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgb70561f" class="outline-3">
-<h3 id="orgb70561f"><span class="section-number-3">5.1</span> Requirements</h3>
+<div id="outline-container-orgcff2ed6" class="outline-3">
+<h3 id="orgcff2ed6"><span class="section-number-3">5.1</span> Requirements</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org72fc539" class="outline-4">
-<h4 id="org72fc539"><span class="section-number-4">5.1.1</span> QtDesigner</h4>
+<div id="outline-container-orgc73ab11" class="outline-4">
+<h4 id="orgc73ab11"><span class="section-number-4">5.1.1</span> QtDesigner</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <p>
 If you want to edit the .ui files ie the actual LOOK or LAYOUT
@@ -413,8 +453,8 @@ If you want to edit the .ui files ie the actual LOOK or LAYOUT
 </div>
 </div>
 
-<div id="outline-container-orga97a77c" class="outline-4">
-<h4 id="orga97a77c"><span class="section-number-4">5.1.2</span> Python Dependencies</h4>
+<div id="outline-container-org9778077" class="outline-4">
+<h4 id="org9778077"><span class="section-number-4">5.1.2</span> Python Dependencies</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <p>
 To install python dependencies use the <code>requirements.txt</code> file with python pip
@@ -423,8 +463,8 @@ To install python dependencies use the <code>requirements.txt</code> file with p
 </div>
 </div>
 
-<div id="outline-container-org1136ae0" class="outline-3">
-<h3 id="org1136ae0"><span class="section-number-3">5.2</span> Icon Manipulation:</h3>
+<div id="outline-container-org02d63a2" class="outline-3">
+<h3 id="org02d63a2"><span class="section-number-3">5.2</span> Icon Manipulation:</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Follow these steps to change hte programs icons
@@ -446,7 +486,7 @@ In the folder, open terminal and run the following code
 <div id="postamble" class="status">
 <p class="date">Date: 2021-09-22 Wed 00:00</p>
 <p class="author">Author: Saksham Sharma</p>
-<p class="date">Created: 2021-09-23 Thu 11:21</p>
+<p class="date">Created: 2021-09-24 Fri 17:38</p>
 </div>
 </body>
 </html>

@@ -17,7 +17,16 @@ The document also includes basic instructions if one wants to modify the program
 ** Objective
  To Build a Library management system that is easy to use and provides a hassel free experience
 - Built with [[https://www.python.org/][Python]] and [[https://www.qt.io/][QT Framework]]
-- MySQL Database Hosted on [[Https://azure.microsoft.com][Azure]]
+  + Python Modules:
+    * wheel
+    * pyqt5
+    * pymysql
+    * xlrd
+    * xlsxwriter
+    * datetime
+- MySQL Database Hosted on [[Https://azure.microsoft.com][Azure]] with IP Authentication
+*** Releases
+- Pre-Alpha:
 
 ** Features
 *** Main system
