@@ -12,7 +12,8 @@ from xlsxwriter import *
 ui, _ = loadUiType('Runners/Library.ui')
 login, _ = loadUiType('Runners/LogWindow.ui')
 
-mainHost, mainUser, passcode, dataBase = 'mysqllibrary.mysql.database.azure.com', 'class12server@mysqllibrary', 'D3DiyXyXgruHrvq', 'library_system'
+mainHost, mainUser, passcode, dataBase = 'sql6.freesqldatabase.com', 'sql6440153', 'DY1LIz2DuhB', 'sql6440153'
+
 
 ####### !! ---------------- !! #######
 ####### !!  Login Windows   !! #######
@@ -792,8 +793,8 @@ class MainApp(QMainWindow, ui):
 
 def main():
     app = QApplication(sys.argv)
-    window = Login()
-    #window = MainApp()
+    #window = Login()
+    window = MainApp()
     window.show()
     app.exec_()
 
