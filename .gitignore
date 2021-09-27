@@ -139,4 +139,5 @@ cython_debug/
 
 .vscode
 
-EXE/LibMan.exe
+export/
+.qt_for_python/
