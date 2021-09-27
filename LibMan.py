@@ -12,7 +12,7 @@ from xlsxwriter import *
 ui, _ = loadUiType('Runners/Library.ui')
 login, _ = loadUiType('Runners/LogWindow.ui')
 
-mainHost, mainUser, passcode, dataBase = 'sql6.freesqldatabase.com', 'sql6440153', 'DY1LIz2DuhB', 'sql6440153'
+mainHost, mainUser, passcode, dataBase = 'bz2gszt19vsb86xta4q2-mysql.services.clever-cloud.com', 'upsezwyrdqamkmjs', 'UyuIitpnPw3YHW4pwS9R', 'bz2gszt19vsb86xta4q2'
 
 
 ####### !! ---------------- !! #######
@@ -187,15 +187,15 @@ class MainApp(QMainWindow, ui):
         Type = self.comboBox.currentText()
         Duration = self.comboBox_2.currentIndex() + 1
         Cur_Date = datetime.date.today()
-        To_date = Cur_Date + datetime.timedelta(days=Duration)
+        Up_date = Cur_Date + datetime.timedelta(days=Duration)
 
-        print(Cur_Date)
-        print(To_date)
+        #! print(Cur_Date)
+        print(Up_date)
 
         self.cur.execute('''
                          INSERT INTO Daily_Tasks(book_name, client, type, duration, date, to_date )
                          VALUES (%s, %s, %s, %s, %s, %s)
-                         ''', (Book_title, Client, Type, Duration, Cur_Date, To_date))
+                         ''', (Book_title, Client, Type, Duration, Cur_Date, Up_date))
 
         self.db.commit()
         self.Show_Operation()
@@ -325,7 +325,7 @@ class MainApp(QMainWindow, ui):
         self.cur = self.db.cursor()
 
         self.cur.execute(
-            ''' SELECT client_ID, client_email, client_name FROM Clients ''')
+            ''' SELECT client_ID, client_email, client_name FROM Client ''')
         data = self.cur.fetchall()
         self.tableWidget_5.setRowCount(0)
         self.tableWidget_5.insertRow(0)
@@ -350,7 +350,7 @@ class MainApp(QMainWindow, ui):
         Client_ID = self.lineEdit_23.text()
 
         self.cur.execute('''
-                         INSERT INTO Clients (client_name, client_email, client_ID)
+                         INSERT INTO Client (client_name, client_email, client_ID)
                          VALUES(%s,%s,%s)
                          ''', (Client_name, Client_email, Client_ID))
         self.db.commit()
@@ -367,7 +367,7 @@ class MainApp(QMainWindow, ui):
 
         Client_ID = self.lineEdit_26.text()
 
-        sql = '''SELECT * FROM Clients WHERE Client_ID = %s '''
+        sql = '''SELECT * FROM Client WHERE Client_ID = %s '''
         self.cur.execute(sql, [(Client_ID)])
         data = self.cur.fetchone()
 
@@ -386,7 +386,7 @@ class MainApp(QMainWindow, ui):
         Client_ID = self.lineEdit_26.text()
 
         self.cur.execute('''
-                         UPDATE Clients SET Client_name = %s,Client_email = %s,Client_ID = %s WHERE Client_ID = %s
+                         UPDATE Client SET Client_name = %s,Client_email = %s,Client_ID = %s WHERE Client_ID = %s
                          ''', (Client_name, Client_email, Client_ID, Client_init_ID))
         self.db.commit()
         self.statusBar().showMessage('Client Data Updated')
@@ -408,7 +408,7 @@ class MainApp(QMainWindow, ui):
                 host=mainHost, user=mainUser, password=passcode, db=dataBase)
             self.cur = self.db.cursor()
 
-            sql = '''DELETE FROM Clients WHERE Client_ID = %s'''
+            sql = '''DELETE FROM Client WHERE Client_ID = %s'''
             self.cur.execute(sql, [(Client_original_ID)])
 
             self.db.commit()
@@ -704,7 +704,7 @@ class MainApp(QMainWindow, ui):
                          SELECT Book_name, Client, Type, Duration, To_date from Daily_Tasks
                          ''')
         data = self.cur.fetchall()
-        wb = Workbook('Exports/Daily_Operation.xlsx')
+        wb = Workbook(f'Exports/Daily_Operation{datetime.date.today()}.xlsx')
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0, 0, 'Book Name')
@@ -734,7 +734,7 @@ class MainApp(QMainWindow, ui):
             ''' SELECT Book_code, Book_name, Book_describe, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
         data = self.cur.fetchall()
         
-        wb = Workbook('Exports/Book_List.xlsx')
+        wb = Workbook(f'Exports/Book_List{datetime.date.today()}.xlsx')
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0, 0, 'Book Code')

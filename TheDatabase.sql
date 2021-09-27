@@ -74,7 +74,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Client`;
 CREATE TABLE `Client` (
-  `idClient` int NOT NULL,
+  `idClient` int NOT NULL AUTO_INCREMENT,
   `Client_name` varchar(45) DEFAULT NULL,
   `Client_email` varchar(45) DEFAULT NULL,
   `Client_ID` varchar(45) DEFAULT NULL,
@@ -89,11 +89,11 @@ LOCK TABLES `Client` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Day-To-Day_Tasks`
+-- Table structure for table `Daily_Tasks`
 --
 
-DROP TABLE IF EXISTS `Day-To-Day_Tasks`;
-CREATE TABLE `Day-To-Day_Tasks` (
+DROP TABLE IF EXISTS `Daily_Tasks`;
+CREATE TABLE `Daily_Tasks` (
   `id` int NOT NULL AUTO_INCREMENT,
   `Book_name` varchar(45) DEFAULT NULL,
   `Type` int DEFAULT NULL,
@@ -105,10 +105,10 @@ CREATE TABLE `Day-To-Day_Tasks` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `Day-To-Day_Tasks`
+-- Dumping data for table `Daily_Tasks`
 --
 
-LOCK TABLES `Day-To-Day_Tasks` WRITE;
+LOCK TABLES `Daily_Tasks` WRITE;
 UNLOCK TABLES;
 
 --
