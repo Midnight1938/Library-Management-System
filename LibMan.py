@@ -793,8 +793,8 @@ class MainApp(QMainWindow, ui):
 
 def main():
     app = QApplication(sys.argv)
-    #window = Login()
-    window = MainApp()
+    window = Login()
+    #window = MainApp()
     window.show()
     app.exec_()
 
