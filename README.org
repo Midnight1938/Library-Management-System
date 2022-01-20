@@ -81,12 +81,13 @@ The document also includes basic instructions if one wants to modify the program
 If you want to edit the .ui files ie the actual LOOK or LAYOUT
 + [[https://build-system.fman.io/static/public/files/Qt%20Designer%20Setup.exe][Install on Windows]]
 + [[https://build-system.fman.io/static/public/files/Qt%20Designer.dmg][Install on Mac]]
-+ **Installing on Linux (Debian and Fedora)**
-#+BEGIN_SRC bash
-sudo apt-get install qttools5-dev-tools qttools5-dev
-
-sudo dnf install qttools5-dev-tools qttools5-dev
-#+END_SRC
++ *Installing on Linux (Debian and Fedora)*
+ - [[https://flathub.org/apps/details/io.qt.QtCreator][Flatpak]]
+ #+BEGIN_SRC bash
+ sudo apt-get install qttools5-dev-tools qttools5-dev
+ 
+ sudo dnf install qttools5-dev-tools qttools5-dev
+ #+END_SRC
 
 **** Python Dependencies
 To install python dependencies use the =requirements.txt= file with python pip
