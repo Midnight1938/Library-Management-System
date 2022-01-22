@@ -4,11 +4,14 @@
 #+SETUPFILE: export/setup/theme-darksun-local.setup
 #+date: <2021-09-22 Wed>
 
-[[https://midnight1938.github.io/Library-Management-System/][Visit website]]
+[[https://midnight1938.github.io/Library-Management-System/][https://raw.githubusercontent.com/Midnight1938/Library-Management-System/master/Builders/visit-site.svg]]
 
 *Name:* Library Management system
 
-*Version:* 1.0
+*Version:* 1.4
+
+[[https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg]] [[https://forthebadge.com/images/badges/0-percent-optimized.svg]] [[https://forthebadge.com/images/badges/designed-in-etch-a-sketch.svg]]
+[[https://forthebadge.com/images/badges/made-with-python.svg]] [[https://forthebadge.com/images/badges/powered-by-qt.svg]] 
 
 ** Overview
 Following is a document listing the features of a Library Management System that was built after being frustrated by the manual handling of data at the local library. The features include a system to manage a database of books, Admins and Clients, and the ability to modify, sort and export relevant data.
