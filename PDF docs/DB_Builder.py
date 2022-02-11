@@ -1,8 +1,9 @@
 from peewee import *
 import datetime
 
-db = MySQLDatabase('lb', user='class12server@mysqllibrary', password='D3DiyXyXgruHrvq',
-                         host='mysqllibrary.mysql.database.azure.com', port=3306)
+db = MySQLDatabase('bz2gszt19vsb86xta4q2', user='upsezwyrdqamkmjs', password='UyuIitpnPw3YHW4pwS9R',
+                         host='bz2gszt19vsb86xta4q2-mysql.services.clever-cloud.com')
+# database, user, password, host
 
 
 

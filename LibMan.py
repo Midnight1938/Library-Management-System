@@ -1,3 +1,4 @@
+
 import datetime
 import sys
 
@@ -12,7 +13,8 @@ from xlsxwriter import *
 ui, _ = loadUiType('Runners/Library.ui')
 login, _ = loadUiType('Runners/LogWindow.ui')
 
-mainHost, mainUser, passcode, dataBase = 'bz2gszt19vsb86xta4q2-mysql.services.clever-cloud.com', 'upsezwyrdqamkmjs', 'UyuIitpnPw3YHW4pwS9R', 'bz2gszt19vsb86xta4q2'
+mainHost, mainUser = 'bz2gszt19vsb86xta4q2-mysql.services.clever-cloud.com', 'upsezwyrdqamkmjs'
+passcode, dataBase = 'UyuIitpnPw3YHW4pwS9R', 'bz2gszt19vsb86xta4q2'
 
 
 ####### !! ---------------- !! #######
@@ -695,7 +697,9 @@ class MainApp(QMainWindow, ui):
 ####### !! ---------------- !! #######
 ####### **    Exporting     ** #######
 ####### !! ---------------- !! #######
+
     def Export_processes(self):
+        """Exporting Transaction history"""
         self.db = pymysql.connect(
             host=mainHost, user=mainUser, password=passcode, db=dataBase)
         self.cur = self.db.cursor()
@@ -704,7 +708,7 @@ class MainApp(QMainWindow, ui):
                          SELECT Book_name, Client, Type, Duration, To_date from Daily_Tasks
                          ''')
         data = self.cur.fetchall()
-        wb = Workbook(f'Exports/Daily_Operation{datetime.date.today()}.xlsx')
+        wb = Workbook(f'Exportings/Daily_Operation{datetime.date.today()}.xlsx')
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0, 0, 'Book Name')
@@ -726,6 +730,7 @@ class MainApp(QMainWindow, ui):
 
 
     def Export_Book_Info(self):
+        """Exporting Book information"""
         self.db = pymysql.connect(
             host=mainHost, user=mainUser, password=passcode, db=dataBase)
         self.cur = self.db.cursor()
@@ -734,7 +739,7 @@ class MainApp(QMainWindow, ui):
             ''' SELECT Book_code, Book_name, Book_describe, Book_category, Book_author, Book_publisher, Book_price FROM Book ''')
         data = self.cur.fetchall()
         
-        wb = Workbook(f'Exports/Book_List{datetime.date.today()}.xlsx')
+        wb = Workbook(f'Exportings/Book_List{datetime.date.today()}.xlsx')
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0, 0, 'Book Code')
@@ -758,15 +763,16 @@ class MainApp(QMainWindow, ui):
 
         
     def Export_Clients(self):
+        """ Export Client data"""
         self.db = pymysql.connect(
             host=mainHost, user=mainUser, password=passcode, db=dataBase)
         self.cur = self.db.cursor()
 
         self.cur.execute(
-            ''' SELECT client_ID, client_email, client_name FROM Clients ''')
+            ''' SELECT client_ID, client_email, client_name FROM Client ''')
         data = self.cur.fetchall()
         
-        wb = Workbook('Exports/Book_List.xlsx')
+        wb = Workbook('Exportings/Book_List.xlsx')
         sheet1 = wb.add_worksheet()
 
         sheet1.write(0, 0, 'Client ID')
@@ -790,11 +796,11 @@ class MainApp(QMainWindow, ui):
 ####### **  Program Runner  ** #######
 ####### !! ---------------- !! #######
 
-
 def main():
+    """ Do magic """
     app = QApplication(sys.argv)
     window = Login()
-    #window = MainApp()
+    # window = MainApp()
     window.show()
     app.exec_()
 
