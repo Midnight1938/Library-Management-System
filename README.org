@@ -4,7 +4,7 @@
 #+SETUPFILE: export/setup/theme-darksun-local.setup
 #+date: <2021-09-22 Wed>
 
-[[https://midnight1938.github.io/Library-Management-System/][https://raw.githubusercontent.com/Midnight1938/Library-Management-System/master/Builders/visit-site.svg]]
+[[https://midnight1938.github.io/Library-Management-System/][https://raw.githubusercontent.com/Midnight1938/Library-Management-System/master/Icons/visit-site.svg]]
 
 *Name:* Library Management system
 
